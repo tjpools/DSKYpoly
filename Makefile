@@ -105,3 +105,5 @@ doctor:
 	@echo "🕵️ Running Makefile diagnostics..."
 	@grep -n '^[ ] \+[^#[:space:]]' Makefile && echo "⚠️  Found lines starting with spaces!" || echo "👌 No space-indented commands found." 
 
+lattice:
+	dot -Tpng lattice.dot -o lattice.png

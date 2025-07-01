@@ -55,7 +55,7 @@ clean:
 
 log_structure:
 	# your logging command here
-	@echo "======================================================"
+	@echo "================================================================"
 	@echo " Logging project structure ..."
 	@echo "=== Project Stucture Snapshot ===" > DSKYpoly.log
 	@date >> DSKYpoly.log
@@ -64,7 +64,7 @@ log_structure:
 
 debug:
 	# your debug variable prints here
-	@echo "======================================================"
+	@echo "================================================================"
 	@echo " Debug Info:"
 	@echo " Source Directory:	$(SRC)"
 	@echo " Build Directory:	$(BUILD)"	
@@ -77,7 +77,7 @@ debug:
 
 check:
 	# your file presence checks here
-	@echo "======================================================"
+	@echo "================================================================"
 	@echo "🔧 Current directory: $(shell pwd)"
 	@echo "💻🔗💾 Checking Project Structure..."
 	@test -f $(C_SRC) && echo "😎💻⚡️Found: $(C_SRC)" || echo "🛠️Missing: $(C_SRC)"
@@ -89,3 +89,19 @@ check:
 	@date >> DSKYpoly.log
 	@tree -L 2 . >> DSKYpoly.log
 	@echo "" >> DSKYpoly.log
+
+version:
+	@echo "================================================================"
+	@echo "🌐 Git Version Info:"
+	@git log -1 --pretty=format:"Commit: %h%nAuthor: %an%nDate: %ad%nMessage: %s"
+	@echo ""
+	@echo " Logging to DSKYpoly.log..."
+	@echo "=== Git Version ===" >> DSKYpoly.log
+	@git log -1 --pretty=format:"[%ad] %h - %s" >> DSKYpoly.log
+	@echo "" >> DSKYpoly.log
+
+doctor:
+	@echo "================================================================="
+	@echo "🕵️ Running Makefile diagnostics..."
+	@grep -n '^[ ] \+[^#[:space:]]' Makefile && echo "⚠️  Found lines starting with spaces!" || echo "👌 No space-indented commands found." 
+

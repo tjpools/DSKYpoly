@@ -1,0 +1,20 @@
+digraph DSKYpolyLattice {
+	rankdir=BT;
+	node [shape=box, style=filled, fillcolor=lightgray];
+
+	DSKYpoly -> Build;
+	DSKYoly -> Log;
+
+	Build -> Version;
+	Build -> Diagnostics;
+
+	Log -> Event;
+	Log -> Symbol;
+
+	Version -> Core;
+	Diagnostics -> Core;
+	Event -> Core;
+	Symbol -> Core;
+
+	Core [fillcolor=lightblue, shape=ellipse, label="Symbolic Core"];
+}

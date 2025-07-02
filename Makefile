@@ -107,3 +107,9 @@ doctor:
 
 lattice:
 	dot -Tpng lattice.dot -o lattice.png
+
+runpy:
+	@./src/dskypoly.py 1 -3 2
+
+runpy-symbolic:
+	@./src/dskypoly.py "x² - 3x + 2"

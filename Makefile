@@ -51,7 +51,7 @@ run: $(EXE)
 # === Clean build artifacts
 clean:
 	@echo " ♻️  Cleaning build files..."
-	rm -rf $(BUILD)/*.0 $(EXE)
+	rm -rf $(BUILD)/*.o $(EXE)
 
 log_structure:
 	# your logging command here

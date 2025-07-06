@@ -23,10 +23,14 @@ OBJ     = $(BUILD)/main.o $(BUILD)/solve_poly_3.o
 EXE     = $(BUILD)/dskypoly3
 
 # Targets we can invoke from terminal
-.PHONY: all clean run test log_structure debug check version doctor lattice tag
+.PHONY: all clean run test log_structure debug check version doctor lattice tag grammar automorphism_detailed reflect
 
 # === Core Build Rules ===
 all: $(EXE) log_structure debug check
+
+# === Ensure build directory exists ===
+build:
+	@mkdir -p $(BUILD)
 
 # === Linking: final binary from object files ===
 $(EXE): $(OBJ)
@@ -53,7 +57,7 @@ run: $(EXE)
 # === Clean build artifacts ===
 clean:
 	@echo "♻️  Cleaning build files..."
-	rm -rf $(BUILD)/*.o $(EXE) DSKYpoly3.log lattice.png
+	rm -rf $(BUILD)/*.o $(EXE) DSKYpoly3.log lattice.png $(BUILD)/automorphism_detailed.png
 
 # === Log project structure ===
 log_structure:
@@ -121,3 +125,42 @@ test: run
 tag:
 	@git tag -a v1.0-cubic -m "Stable cubic solver with real/complex root support"
 	@git push origin v1.0-cubic
+
+# === Log symbolic grammar ===
+grammar:
+	@echo "================================================================"
+	@echo "📜 Logging symbolic grammar..."
+	@echo "=== DSKYpoly Grammar ===" >> DSKYpoly3.log
+	@date >> DSKYpoly3.log
+	@cat grammar/dskypoly.bnf >> DSKYpoly3.log
+	@echo "" >> DSKYpoly3.log
+	@echo "=== Grammar Commentary ===" >> DSKYpoly3.log
+	@cat grammar/README.md >> DSKYpoly3.log
+	@echo "" >> DSKYpoly3.log
+	@echo "Grammar logged to DSKYpoly3.log"
+
+# === Generate detailed automorphism graph ===
+automorphism_detailed: | build
+	@echo "================================================================"
+	@echo "🧭 Generating detailed automorphism graph..."
+	dot -Tpng grammar/automorphism_detailed.dot -o build/automorphism_detailed.png
+	@echo "🖼️  Generated: $(PWD)/build/automorphism_detailed.png"
+	@echo "📂 Opening image viewer..."
+	@eog build/automorphism_detailed.png 2>/dev/null &
+
+# === Reflective snapshot of the system ===
+reflect: grammar automorphism_detailed version
+	@echo "================================================================"
+	@echo "🪞 Reflective snapshot complete."
+	@echo "📘 Includes: Grammar, Commentary, Automorphism Graph, Git Version"
+	@echo "📝 See: DSKYpoly3.log and build/automorphism_detailed.png"
+	@echo "" >> DSKYpoly3.log
+	@echo "=== System Symbolic Verbs (.PHONY Targets) ===" >> DSKYpoly3.log
+	@date >> DSKYpoly3.log
+	@echo "Available symbolic operations in this system:" >> DSKYpoly3.log
+	@grep "^\.PHONY:" Makefile | sed 's/\.PHONY: //' | tr ' ' '\n' | sort | sed 's/^/  - /' >> DSKYpoly3.log
+	@echo "" >> DSKYpoly3.log
+	@echo "These targets represent the symbolic verbs available to interact" >> DSKYpoly3.log
+	@echo "with the DSKYpoly cubic solver system. Each verb encapsulates" >> DSKYpoly3.log
+	@echo "a specific transformation or introspection operation." >> DSKYpoly3.log
+	@echo "" >> DSKYpoly3.log

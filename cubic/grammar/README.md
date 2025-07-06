@@ -52,3 +52,21 @@ Below is a mapping of the system’s components to their philosophical roles:
 | Git commits                | Temporal memory — records the system’s evolution and symbolic decisions over time  |
 
 This grammar directory is the reflective core of the cubic solver. It contains not just syntax, but meaning. Not just structure, but philosophy.
+
+---
+
+## 🔧 Appendix: The Babbage Connection
+
+Charles Babbage envisioned the Analytical Engine as a mechanical system that could compute mathematical truths through pure process. It was a dream of **mechanical thought**—a machine that could reason.
+
+DSKYpoly echoes that dream, but with a modern twist:
+
+- It computes mathematical truths (roots of cubic equations via Cardano's method)
+- It visualizes its own internal logic (`automorphism_detailed.dot`)
+- It defines its own symbolic language (`dskypoly.bnf`)
+- It reflects on its own structure (`make reflect`)
+- It documents its own evolution (Git commits)
+
+Where Babbage sought mechanical precision, DSKYpoly adds **meta-mechanical reflection**. It is a system that not only computes, but **understands and expresses how it computes**.
+
+This is not just a solver. It is a symbolic machine that **thinks about thinking**—a recursive echo of Babbage's dream, realized in x86-64 assembly and modern symbolic tooling.

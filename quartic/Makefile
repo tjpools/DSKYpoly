@@ -38,7 +38,7 @@ build:
 # === Linking: final binary from object files ===
 $(EXE): $(OBJ) | build
 	@echo "🖇️ Linking quartic solver..."
-	$(CC) $(LDFLAGS) $(OBJ) -o $@
+	$(CC) $(OBJ) -o $@ $(LDFLAGS)
 
 # === Compile C source ===
 $(BUILD)/main.o: $(C_SRC) | build

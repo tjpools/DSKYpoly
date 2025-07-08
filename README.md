@@ -44,13 +44,43 @@ DSKYpoly/
 
 ## 🚀 **Quick Start**
 
-### **Build Requirements:**
-- `gcc` (C compiler)
-- `nasm` (Netwide Assembler)
-- `make` (Build system)
-- Linux x86-64 system
+### **Option 1: Docker (Recommended for Windows/Cross-Platform)**
 
-### **Build and Test:**
+#### **Prerequisites**
+- **Docker Desktop** (Windows 11, macOS, or Linux)
+- **Git** (to clone the repository)
+
+#### **Quick Start with Docker**
+```bash
+# Clone the repository
+git clone https://github.com/tjpools/DSKYpoly.git
+cd DSKYpoly
+
+# Build and run development environment
+docker-compose up --build dskypoly-dev
+
+# Or run analytics environment with Jupyter
+docker-compose up --build dskypoly-analytics
+# Then open http://localhost:8888 in your browser
+```
+
+#### **Docker Features**
+- **Cross-Platform**: Works on Windows 11, macOS, and Linux
+- **Isolated Environment**: No need to install NASM, GCC locally
+- **Analytics Support**: Jupyter notebooks for mathematical analysis
+- **Pre-built Tools**: All dependencies included
+
+See [`DOCKER.md`](DOCKER.md) for comprehensive Docker setup and usage.
+
+### **Option 2: Native Linux Installation**
+
+#### **Prerequisites**
+- **x86-64 Linux system** (tested on Ubuntu/Debian)  
+- **NASM assembler** (`sudo apt install nasm`)
+- **GCC compiler** (`sudo apt install build-essential`)
+- **Make** (usually included with build-essential)
+
+#### **Build and Test**
 ```bash
 # Test quartic solver (Ferrari's method)
 cd quartic

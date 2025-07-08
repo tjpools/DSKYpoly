@@ -1,0 +1,46 @@
+# Docker ignore file for DSKYpoly project
+
+# Build artifacts
+build/
+*.o
+*.log
+*.lst
+
+# Git files
+.git/
+.gitignore
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+
+# Temporary files
+*.tmp
+*.temp
+
+# Docker files themselves (to avoid recursion)
+Dockerfile*
+docker-compose*.yml
+.dockerignore

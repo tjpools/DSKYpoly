@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DSKYpoly - Docker Environment
 # Additional files to ignore in Docker context
 
@@ -12,12 +13,26 @@ build/
 .dockerignore
 Dockerfile.dev
 docker-compose.override.yml
+=======
+# Docker ignore file for DSKYpoly project
+
+# Build artifacts
+build/
+*.o
+*.log
+*.lst
+
+# Git files
+.git/
+.gitignore
+>>>>>>> main
 
 # IDE files
 .vscode/
 .idea/
 *.swp
 *.swo
+<<<<<<< HEAD
 
 # OS files
 .DS_Store
@@ -31,11 +46,15 @@ logs/
 tmp/
 temp/
 *.tmp
+=======
+*~
+>>>>>>> main
 
 # Python cache
 __pycache__/
 *.pyc
 *.pyo
+<<<<<<< HEAD
 .pytest_cache/
 
 # Jupyter
@@ -48,3 +67,28 @@ __pycache__/
 
 # Documentation build
 docs/_build/
+=======
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+
+# Temporary files
+*.tmp
+*.temp
+
+# Docker files themselves (to avoid recursion)
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+>>>>>>> main

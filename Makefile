@@ -1,29 +1,29 @@
 # === Makefile for DSKYpoly ===
 
 # Compiler and Assembler
-CC      = gcc
-AS      = nasm
+CC = gcc
+AS = nasm
 
 # Flags
-CFLAGS  = -Wall -g
+CFLAGS = -Wall -g -no-pie
 ASFLAGS = -f elf64
 LDFLAGS = -no-pie
 
 # Folder Structure
-BUILD   = build
-SRC     = src
+BUILD = build
+SRC = src
 INCLUDE = include
 
 # Source files
-C_SRC   = $(SRC)/main.c
+C_SRC = $(SRC)/main.c
 ASM_SRC = $(SRC)/solve_poly_2.asm
 
 # Object and Binary output
-OBJ     = $(BUILD)/main.o $(BUILD)/solve_poly_2.o
-EXE     = $(BUILD)/dskypoly
+OBJ = $(BUILD)/main.o $(BUILD)/solve_poly_2.o
+EXE = $(BUILD)/dskypoly
 
 # Targets we can invoke from terminal
-.PHONY: all clean run test log_structure debug check version doctor lattice runpy runpy-symbolic ta
+.PHONY: all clean run test log_structure debug check version doctor lattice runpy runpy-symbolic tag
 
 # === Core Build Rules ===
 all: $(EXE) log_structure debug check
@@ -42,7 +42,6 @@ $(BUILD)/main.o: $(C_SRC)
 # === Assemble NASM source ===
 $(BUILD)/solve_poly_2.o: $(ASM_SRC)
 	@echo "🔧 Assembling NASM source..."
-	@mkdir -p $(BUILD)
 	$(AS) $(ASFLAGS) $< -o $@
 
 # === Run the program ===
@@ -52,13 +51,13 @@ run: $(EXE)
 
 # === Clean build artifacts ===
 clean:
-	@echo "♻️  Cleaning build files..."
-	rm -rf $(BUILD)/*.o $(EXE) DSKYpoly.log lattice.png
+	@echo "♻️ Cleaning build files..."
+	rm -rf $(BUILD)/*.o $(EXE)
 
 # === Log project structure ===
 log_structure:
 	@echo "================================================================"
-	@echo "📁 Logging project structure..."
+	@echo "Logging project structure ..."
 	@echo "=== Project Structure Snapshot ===" > DSKYpoly.log
 	@date >> DSKYpoly.log
 	@tree -L 2 . >> DSKYpoly.log
@@ -67,20 +66,24 @@ log_structure:
 # === Debug info ===
 debug:
 	@echo "================================================================"
-	@echo "🧠 Debug Info:"
-	@echo " Source Directory:     $(SRC)"
-	@echo " Build Directory:      $(BUILD)"
-	@echo " C Source File:        $(C_SRC)"
-	@echo " ASM Source File:      $(ASM_SRC)"
-	@echo " Object Files:         $(OBJ)"
-	@echo " Executable Target:    $(EXE)"
-	@echo " Compiler:             $(CC)"
-	@echo " Assembler:            $(AS)"
+	@echo "Debug Info:"
+	@echo "Source Directory: $(SRC)"
+	@echo "Build Directory: $(BUILD)"
+	@echo "C Source File: $(C_SRC)"
+	@echo "ASM Source File: $(ASM_SRC)"
+	@echo "Object Files: $(OBJ)"
+	@echo "Executable Target: $(EXE)"
+	@echo "Compiler: $(CC)"
+	@echo "Assembler: $(AS)"
+	@echo "CFLAGS: $(CFLAGS)"
+	@echo "ASFLAGS: $(ASFLAGS)"
+	@echo "LDFLAGS: $(LDFLAGS)"
 
 # === Pre-build checks ===
 check:
 	@echo "================================================================"
-	@echo "🔍 Checking Project Structure..."
+	@echo "🔧 Current directory: $(shell pwd)"
+	@echo "💻🔗💾 Checking Project Structure..."
 	@test -f $(C_SRC) && echo "✅ Found: $(C_SRC)" || echo "❌ Missing: $(C_SRC)"
 	@test -f $(ASM_SRC) && echo "✅ Found: $(ASM_SRC)" || echo "❌ Missing: $(ASM_SRC)"
 	@test -f Makefile && echo "✅ Found: Makefile" || echo "❌ Missing: Makefile"
@@ -97,18 +100,18 @@ version:
 	@echo "🌐 Git Version Info:"
 	@git log -1 --pretty=format:"Commit: %h%nAuthor: %an%nDate: %ad%nMessage: %s"
 	@echo ""
-	@echo "📝 Logging to DSKYpoly.log..."
+	@echo "Logging to DSKYpoly.log..."
 	@echo "=== Git Version ===" >> DSKYpoly.log
 	@git log -1 --pretty=format:"[%ad] %h - %s" >> DSKYpoly.log
 	@echo "" >> DSKYpoly.log
 
 # === Makefile hygiene check ===
 doctor:
-	@echo "================================================================"
-	@echo "🩺 Running Makefile diagnostics..."
-	@grep -n '^[ ]\+[^#[:space:]]' Makefile && echo "⚠️  Found lines starting with spaces!" || echo "✅ No space-indented commands found."
+	@echo "================================================================="
+	@echo "🕵️ Running Makefile diagnostics..."
+	@grep -n '^[ ]\+[^#[:space:]]' Makefile && echo "⚠️ Found lines starting with spaces!" || echo "👌 No space-indented commands found."
 
-# === Optional: Generate lattice diagram ===
+# === Generate lattice visualization ===
 lattice:
 	dot -Tpng lattice.dot -o lattice.png
 

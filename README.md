@@ -3,6 +3,10 @@
 
 A comprehensive polynomial equation solver implementing classical algebraic methods in x86-64 assembly language. From quadratic fundamentals to Ferrari's quartic method, with quintic numerical approaches on the horizon.
 
+> **🎭 For the deeper philosophical context:** See [`PHILOSOPHICAL_OVERVIEW.md`](PHILOSOPHICAL_OVERVIEW.md) for how this project connects to Gödel, Escher, Bach and group theory as a meditation on mathematical consciousness and computational self-reference.
+
+> **⚡ For the minimal takeaway:** See [`MINIMAL_TAKEAWAY.md`](MINIMAL_TAKEAWAY.md) for the essential insight in under 2 minutes.
+
 ## 🎯 **Project Overview**
 
 DSKYpoly is a low-level symbolic computation engine that bridges pure mathematics and systems programming. Each polynomial degree is implemented with mathematical rigor and architectural precision.

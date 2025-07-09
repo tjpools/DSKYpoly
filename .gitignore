@@ -1,4 +1,27 @@
+# Build artifacts
 build/
-*.log
 *.o
+*.log
 *.out
+*.exe
+*.lst
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
+
+# Generated files
+lattice.png
+
+# Archive files (optional)
+DSKYpoly-v*.zip

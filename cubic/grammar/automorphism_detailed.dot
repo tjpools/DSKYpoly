@@ -1,0 +1,56 @@
+digraph CubicSolverDetailed {
+    rankdir=LR;
+    node [shape=box, style=filled, fillcolor=lightyellow, fontname="Courier"];
+    edge [fontname="Courier", fontsize=10];
+
+    // Input stage
+    input [label="Input Coeffs:\nxmm0=a, xmm1=b\nxmm2=c, xmm3=d\nStack: [rsp+0..24]"];
+    
+    // Computation stages with exact instruction sequences
+    compute_p [label="Compute p:\nmovsd xmm4, [rel const_3]\nmulsd xmm4, xmm0 (3a)\nmulsd xmm4, xmm2 (3ac)\nsubsd xmm4, b² → p\nmovsd [rsp+32], xmm4"];
+    
+    compute_q [label="Compute q:\nmovsd xmm4, [rel const_2]\n2b³ - 9abc + 27a²d\ndivsd by 27a³\nmovsd [rsp+40], xmm4"];
+    
+    compute_delta [label="Compute Δ:\nmovsd xmm4, [rsp+32] (p)\nmulsd p³, const_4\naddsd 27q²\nmulsd const_neg1\nmovsd [rsp+48], xmm4"];
+    
+    // Decision point
+    classify [label="Branch Decision:\nxorpd xmm7, xmm7\nucomisd xmm4, xmm7\nΔ ≥ 0 ? Δ < 0 ?"];
+    
+    // Real root path
+    real_root [label="Real Root Path:\ncall sqrt\nmovsd xmm0, result\nmov rdi, fmt_real_root\ncall printf"];
+    
+    // Complex root path  
+    complex_roots [label="Complex Root Path:\nmov rdi, fmt_complex_root\nmovsd xmm0, real_part\nmovsd xmm1, imag_part\ncall printf (×2)"];
+    
+    // Output
+    output [label="System Output:\nConsole display\nReturn to caller"];
+
+    // Flow edges with instruction types
+    input -> compute_p [label="movsd loads\nconst access"];
+    compute_p -> compute_q [label="stack store\nregister reuse"];
+    compute_q -> compute_delta [label="stack loads\narithmetic ops"];
+    compute_delta -> classify [label="comparison\nflag setting"];
+    classify -> real_root [label="jb not taken\n(Δ ≥ 0)"];
+    classify -> complex_roots [label="jb taken\n(Δ < 0)"];
+    real_root -> output [label="printf call\nstack cleanup"];
+    complex_roots -> output [label="printf calls\nstack cleanup"];
+    
+    // Visual grouping
+    subgraph cluster_transform {
+        label="Depressed Cubic Transform";
+        style=dashed;
+        compute_p; compute_q;
+    }
+    
+    subgraph cluster_analysis {
+        label="Discriminant Analysis";  
+        style=dashed;
+        compute_delta; classify;
+    }
+    
+    subgraph cluster_output {
+        label="Root Display";
+        style=dashed; 
+        real_root; complex_roots; output;
+    }
+}

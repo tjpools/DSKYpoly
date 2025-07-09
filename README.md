@@ -15,7 +15,8 @@ DSKYpoly is a low-level symbolic computation engine that bridges pure mathematic
 - ✅ **Quadratic Solver** - Classical formula implementation
 - ✅ **Cubic Solver** - Cardano's method with discriminant analysis  
 - ✅ **Quartic Solver** - Ferrari's method via resolvent cubic
-- 🚧 **Quintic Solver** - Numerical methods (Abel-Ruffini compliant)
+- ✅ **Quintic Solver** - Hypergeometric approach with Python/mpmath
+- 🚧 **Quintic Solver** - Extended numerical methods (ongoing)
 
 ## 🏛️ **Mathematical Heritage**
 
@@ -37,8 +38,9 @@ DSKYpoly/
 ├── src/           # Core polynomial solver (quadratic foundation)
 ├── cubic/         # Cardano's method implementation
 ├── quartic/       # Ferrari's method (dual implementation strategy)
-├── quintic/       # [Planned] Numerical approaches
+├── quintic/       # Hypergeometric & numerical approaches
 ├── include/       # Shared mathematical constants and structures
+├── visualizations/ # Mathematical plots and analysis
 └── build/         # Compiled executables and test results
 ```
 
@@ -68,6 +70,7 @@ docker-compose up --build dskypoly-analytics
 - **Cross-Platform**: Works on Windows 11, macOS, and Linux
 - **Isolated Environment**: No need to install NASM, GCC locally
 - **Analytics Support**: Jupyter notebooks for mathematical analysis
+- **Python Mathematics**: Pre-installed mpmath, scipy, sympy, matplotlib, plotly
 - **Pre-built Tools**: All dependencies included
 
 See [`DOCKER.md`](DOCKER.md) for comprehensive Docker setup and usage.
@@ -91,6 +94,10 @@ make clean && make
 cd ../cubic
 make clean && make
 ./build/dskypoly3
+
+# Test quintic solver (Hypergeometric approach)
+cd ../quintic
+make test-roots-of-unity  # Comprehensive test with visualization
 ```
 
 ## 🧮 **Example: Quartic Polynomial**
@@ -113,6 +120,29 @@ make clean && make
 [rsp+64]  : 9.0    ; constant term
 ```
 
+## 🔬 **Example: Quintic Polynomial (5th Roots of Unity)**
+
+**Input:** `x⁵ - 1 = 0`
+
+**Hypergeometric Approach:**
+1. Recognize as roots of unity: `exp(2πik/5)` for k = 0,1,2,3,4
+2. Use hypergeometric functions to compute exact algebraic expressions
+3. Extract numerical values with arbitrary precision
+4. Visualize roots in complex plane
+
+**Python Implementation:**
+```python
+solver = QuinticHypergeometricSolver()
+roots = solver.solve_roots_of_unity(5)
+# Returns: [1+0j, 0.309+0.951j, -0.809+0.588j, -0.809-0.588j, 0.309-0.951j]
+```
+
+**Key Features:**
+- **Arbitrary Precision**: Uses mpmath for exact computations
+- **Visualization**: Complex plane plotting with matplotlib/plotly
+- **Root Verification**: Automatic validation of solutions
+- **Educational Output**: Step-by-step mathematical analysis
+
 ## 🔬 **Technical Highlights**
 
 ### **Architectural Patterns:**
@@ -125,6 +155,33 @@ make clean && make
 - **IEEE 754 Compliance** - Standard floating-point operations
 - **Discriminant Analysis** - Root classification and validation
 - **Numerical Stability** - Careful handling of ill-conditioned cases
+
+## 🌉 **The Abstraction Journey: From Silicon to Symmetry**
+
+DSKYpoly represents more than just a polynomial solver—it's a meditation on the layers of abstraction that separate raw computation from mathematical truth. This project deliberately bridges multiple levels of the computational hierarchy:
+
+### **Layer 1: Bare Metal Assembly**
+At the foundation, we manipulate floating-point registers directly, crafting machine code that speaks to the silicon itself. Every coefficient placement, every stack alignment, every SSE instruction is a conscious choice about how mathematical concepts map to physical circuits.
+
+### **Layer 2: Classical Algorithms**
+Ferrari's quartic method and Cardano's cubic solutions encode centuries of mathematical insight into precise computational steps. These aren't mere calculations—they're executable proofs of algebraic theorems.
+
+### **Layer 3: Modern Numerical Methods**
+The quintic solver introduces a hybrid approach, combining exact algebraic detection with numerical approximation. Here, we acknowledge both the power and limitations of symbolic computation.
+
+### **Layer 4: High-Level Mathematical Abstraction**
+The Python-based hypergeometric quintic solver operates in the realm of pure mathematical concepts—complex analysis, special functions, and symmetry groups. At this level, we're not just solving equations; we're exploring the deep structures that govern polynomial behavior.
+
+### **The Philosophical Synthesis**
+This multi-layered approach reveals something profound: **mathematical truth exists independently of its implementation**, yet the method of implementation shapes our understanding. The assembly code teaches us about computational constraints, while the high-level algorithms reveal mathematical patterns invisible at the machine level.
+
+The project demonstrates that abstraction isn't about hiding complexity—it's about revealing different aspects of mathematical reality. Each layer offers unique insights:
+- Assembly reveals the **computational cost** of mathematical operations
+- Classical algorithms show the **historical development** of mathematical thought  
+- Numerical methods expose the **practical limits** of exact computation
+- High-level abstractions illuminate the **underlying mathematical structures**
+
+This is why DSKYpoly maintains implementations at multiple levels: not for redundancy, but for **mathematical completeness**. Each layer is a different lens through which to view the same fundamental truths about polynomial equations.
 
 ## 📖 **Documentation**
 
@@ -144,15 +201,18 @@ DSKYpoly demonstrates:
 
 ## 🚧 **Future Development**
 
-### **Quintic Solver (In Progress):**
-- **Numerical Methods** - Newton-Raphson, Durand-Kerner
-- **Special Cases** - Solvable quintic patterns
-- **Hybrid Approach** - Algebraic detection + numerical solving
+### **Quintic Solver (Ongoing):**
+- ✅ **Hypergeometric Methods** - Special function approaches via mpmath
+- ✅ **Visualization Framework** - Root plotting and mathematical analysis
+- 🚧 **General Quintic Cases** - Extended hypergeometric transformations
+- 🚧 **Numerical Methods** - Newton-Raphson, Durand-Kerner integration
+- 🚧 **Interactive Analysis** - Jupyter notebooks for quintic exploration
 
 ### **Advanced Features:**
 - **Complex Root Support** - Full complex number arithmetic
 - **Polynomial Operations** - Multiplication, division, GCD
-- **Visualization** - Root plotting and convergence analysis
+- **Performance Analysis** - Computational complexity studies
+- **Educational Notebooks** - Interactive mathematical exploration
 
 ## 📄 **License**
 

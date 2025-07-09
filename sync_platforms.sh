@@ -178,18 +178,46 @@ Cross-platform compatibility ensured"
             # Check if dskypoly environment exists
             if conda env list | grep -q dskypoly; then
                 echo "✅ DSKYpoly environment ready"
-                echo "To activate: conda activate dskypoly"
+                echo ""
+                echo "🚀 Launch Options:"
+                echo "1. Activate conda environment (terminal)"
+                echo "2. Use Anaconda Navigator (GUI)"
+                echo ""
+                echo "📱 Terminal Activation:"
+                echo "   conda activate dskypoly"
+                echo "   jupyter lab"
+                echo ""
+                echo "🖱️  Anaconda Navigator:"
+                echo "   1. Open Anaconda Navigator"
+                echo "   2. Select 'dskypoly' environment"
+                echo "   3. Launch JupyterLab or Spyder"
+                echo "   4. Navigate to DSKYpoly project folder"
+                echo "   5. Open notebooks/quintic_exploration.ipynb"
             else
                 echo "📦 Setting up DSKYpoly environment..."
                 if [ -f environment.yml ]; then
+                    echo "🔧 Creating environment..."
                     conda env create -f environment.yml
                     echo "✅ Environment created"
+                    echo ""
+                    echo "🎯 Next Steps:"
+                    echo "1. Open Anaconda Navigator"
+                    echo "2. Select 'dskypoly' environment from dropdown"
+                    echo "3. Launch JupyterLab for mathematical exploration"
+                    echo "4. Launch Spyder for Python development"
                 else
                     echo "❌ environment.yml not found. Please pull latest changes."
                 fi
             fi
         else
             echo "⚠️  Conda not found. Please install Anaconda/Miniconda"
+            echo ""
+            echo "🖱️  Using Anaconda Navigator:"
+            echo "1. Download DSKYpoly project files"
+            echo "2. Open Anaconda Navigator"
+            echo "3. Go to Environments → Import"
+            echo "4. Select environment.yml file"
+            echo "5. Launch JupyterLab or Spyder"
         fi
         
         echo ""

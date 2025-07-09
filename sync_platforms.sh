@@ -47,16 +47,47 @@ case $ENV in
         echo "2. Create mobile-friendly commit"
         echo "3. Prepare for Windows/WSL testing"
         echo "4. Show recent changes for iPhone monitoring"
+        echo "5. Diagnose git/remote issues"
         echo ""
         
-        read -p "Choose option (1-4): " choice
+        read -p "Choose option (1-5): " choice
         
         case $choice in
             1)
                 echo "Pushing current branch..."
                 current_branch=$(git branch --show-current)
-                git push origin "$current_branch"
-                echo "✅ Pushed to origin/$current_branch"
+                
+                # Check if we need to pull first
+                git fetch origin
+                
+                # Check if remote is ahead
+                LOCAL=$(git rev-parse @)
+                REMOTE=$(git rev-parse @{u} 2>/dev/null)
+                BASE=$(git merge-base @ @{u} 2>/dev/null)
+                
+                if [ "$LOCAL" = "$REMOTE" ]; then
+                    echo "📍 Branch is up-to-date"
+                elif [ "$LOCAL" = "$BASE" ]; then
+                    echo "⚠️  Remote is ahead. Pulling first..."
+                    git pull origin "$current_branch"
+                elif [ "$REMOTE" = "$BASE" ]; then
+                    echo "🚀 Local is ahead. Pushing..."
+                else
+                    echo "⚠️  Branches have diverged. Manual merge may be required."
+                    echo "Run: git pull origin $current_branch"
+                    exit 1
+                fi
+                
+                # Attempt push with error handling
+                if git push origin "$current_branch"; then
+                    echo "✅ Successfully pushed to origin/$current_branch"
+                else
+                    echo "❌ Push failed. Common solutions:"
+                    echo "1. Check internet connection"
+                    echo "2. Verify GitHub authentication (token/SSH)"
+                    echo "3. Try: git pull origin $current_branch && git push origin $current_branch"
+                    echo "4. Check if branch exists on remote: git ls-remote origin"
+                fi
                 ;;
             2)
                 echo "Creating mobile-friendly commit..."
@@ -71,14 +102,25 @@ Cross-platform compatibility ensured"
                 ;;
             3)
                 echo "Preparing for Windows/WSL..."
-                git push origin quintic-hypergeometric
-                git push origin reverse-engineering-analysis
-                echo "✅ Branches synced for Windows/WSL testing"
+                
+                # Push with error handling
+                branches_to_push=("quintic-hypergeometric" "reverse-engineering-analysis")
+                for branch in "${branches_to_push[@]}"; do
+                    echo "📤 Pushing $branch..."
+                    if git push origin "$branch"; then
+                        echo "✅ $branch pushed successfully"
+                    else
+                        echo "❌ Failed to push $branch"
+                        echo "💡 Try manually: git push origin $branch"
+                    fi
+                done
+                
                 echo ""
                 echo "📝 Windows/WSL Commands:"
                 echo "git pull origin quintic-hypergeometric"
                 echo "conda env create -f environment.yml"
                 echo "conda activate dskypoly"
+                echo "jupyter lab notebooks/quintic_exploration.ipynb"
                 ;;
             4)
                 echo "📱 Recent changes (iPhone-friendly):"
@@ -86,6 +128,40 @@ Cross-platform compatibility ensured"
                 echo ""
                 echo "📊 Modified files:"
                 git diff --name-only HEAD~5..HEAD
+                ;;
+            5)
+                echo "🔍 Git/Remote Diagnostics"
+                echo "========================="
+                echo ""
+                echo "📡 Remote configuration:"
+                git remote -v
+                echo ""
+                echo "🌐 Remote branch status:"
+                git ls-remote origin
+                echo ""
+                echo "📊 Local vs Remote comparison:"
+                git fetch origin
+                for branch in $(git branch -r | grep -v HEAD | sed 's/origin\///'); do
+                    echo "Branch: $branch"
+                    LOCAL=$(git rev-parse "$branch" 2>/dev/null || echo "local-missing")
+                    REMOTE=$(git rev-parse "origin/$branch" 2>/dev/null || echo "remote-missing")
+                    if [ "$LOCAL" = "$REMOTE" ]; then
+                        echo "  ✅ In sync"
+                    else
+                        echo "  ⚠️  Out of sync"
+                    fi
+                done
+                echo ""
+                echo "🔑 Authentication test:"
+                if git ls-remote origin > /dev/null 2>&1; then
+                    echo "✅ Can connect to remote repository"
+                else
+                    echo "❌ Cannot connect to remote repository"
+                    echo "💡 Check:"
+                    echo "  - Internet connection"
+                    echo "  - GitHub authentication (token/SSH key)"
+                    echo "  - Repository URL: $(git remote get-url origin)"
+                fi
                 ;;
         esac
         ;;

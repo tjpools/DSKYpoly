@@ -1,0 +1,100 @@
+
+quartic/build/dskypoly4:     file format elf64-x86-64
+
+SYMBOL TABLE:
+0000000000000000 l    df *ABS*	0000000000000000              crt1.o
+0000000000402198 l     O .note.ABI-tag	0000000000000020              __abi_tag
+0000000000000000 l    df *ABS*	0000000000000000              crtbegin.o
+0000000000400410 l     F .text	0000000000000000              deregister_tm_clones
+0000000000400440 l     F .text	0000000000000000              register_tm_clones
+0000000000400480 l     F .text	0000000000000000              __do_global_dtors_aux
+0000000000404507 l     O .bss	0000000000000001              completed.0
+0000000000403df0 l     O .fini_array	0000000000000000              __do_global_dtors_aux_fini_array_entry
+00000000004004b0 l     F .text	0000000000000000              frame_dummy
+0000000000403de8 l     O .init_array	0000000000000000              __frame_dummy_init_array_entry
+0000000000000000 l    df *ABS*	0000000000000000              main.c
+0000000000000000 l    df *ABS*	0000000000000000              src/solve_poly_4_reference.asm
+0000000000404178 l       .data	0000000000000000              const_neg1
+0000000000404180 l       .data	0000000000000000              const_0
+0000000000404188 l       .data	0000000000000000              const_1
+0000000000404190 l       .data	0000000000000000              const_2
+0000000000404198 l       .data	0000000000000000              const_3
+00000000004041a0 l       .data	0000000000000000              const_4
+00000000004041a8 l       .data	0000000000000000              const_8
+00000000004041b0 l       .data	0000000000000000              const_16
+00000000004041b8 l       .data	0000000000000000              const_27
+00000000004041c0 l       .data	0000000000000000              const_256
+00000000004041c8 l       .data	0000000000000000              const_half
+00000000004041d0 l       .data	0000000000000000              const_quarter
+00000000004041d8 l       .data	0000000000000000              const_eighth
+00000000004041e0 l       .data	0000000000000000              fmt_quartic_start
+000000000040420d l       .data	0000000000000000              fmt_input_coeffs
+0000000000404244 l       .data	0000000000000000              fmt_depressed
+0000000000404279 l       .data	0000000000000000              fmt_resolvent
+00000000004042ad l       .data	0000000000000000              fmt_discriminant
+00000000004042c9 l       .data	0000000000000000              fmt_real_root
+00000000004042da l       .data	0000000000000000              fmt_complex_root
+00000000004042f6 l       .data	0000000000000000              fmt_debug
+0000000000404317 l       .data	0000000000000000              fmt_complete
+0000000000404338 l       .data	0000000000000000              err_leading_zero
+0000000000400bdc l       .text	0000000000000000              solve_poly_4_reference.error_leading_zero
+0000000000000000 l    df *ABS*	0000000000000000              src/solve_poly_4_production.asm
+0000000000404370 l       .data	0000000000000000              const_neg1
+0000000000404378 l       .data	0000000000000000              const_0
+0000000000404380 l       .data	0000000000000000              const_1
+0000000000404388 l       .data	0000000000000000              const_2
+0000000000404390 l       .data	0000000000000000              const_3
+0000000000404398 l       .data	0000000000000000              const_4
+00000000004043a0 l       .data	0000000000000000              const_8
+00000000004043a8 l       .data	0000000000000000              const_16
+00000000004043b0 l       .data	0000000000000000              const_27
+00000000004043b8 l       .data	0000000000000000              const_256
+00000000004043c0 l       .data	0000000000000000              const_half
+00000000004043c8 l       .data	0000000000000000              const_quarter
+00000000004043d0 l       .data	0000000000000000              const_eighth
+00000000004043d8 l       .data	0000000000000000              fmt_header
+0000000000404409 l       .data	0000000000000000              fmt_input
+0000000000404440 l       .data	0000000000000000              fmt_depressed
+000000000040446d l       .data	0000000000000000              fmt_resolvent
+000000000040449b l       .data	0000000000000000              fmt_discriminant
+00000000004044af l       .data	0000000000000000              fmt_real_root
+00000000004044bb l       .data	0000000000000000              fmt_complete
+00000000004044dc l       .data	0000000000000000              err_leading_zero
+0000000000400f4f l       .text	0000000000000000              solve_poly_4_production.error_leading_zero
+0000000000000000 l    df *ABS*	0000000000000000              crtend.o
+0000000000402170 l     O .eh_frame	0000000000000000              __FRAME_END__
+0000000000000000 l    df *ABS*	0000000000000000              
+0000000000403df8 l     O .dynamic	0000000000000000              _DYNAMIC
+0000000000401ff0 l       .eh_frame_hdr	0000000000000000              __GNU_EH_FRAME_HDR
+0000000000403fe8 l     O .got.plt	0000000000000000              _GLOBAL_OFFSET_TABLE_
+0000000000000000       F *UND*	0000000000000000              putchar@GLIBC_2.2.5
+0000000000000000       F *UND*	0000000000000000              __libc_start_main@GLIBC_2.34
+0000000000400c00 g       .text	0000000000000000              solve_poly_4_production
+0000000000404040  w      .data	0000000000000000              data_start
+0000000000404060 g     O .data	0000000000000118              test_cases
+0000000000000000       F *UND*	0000000000000000              puts@GLIBC_2.2.5
+0000000000404507 g       .data	0000000000000000              _edata
+0000000000400f6c g     F .fini	0000000000000000              .hidden _fini
+0000000000400a40 g       .text	0000000000000000              solve_poly_4_reference
+0000000000000000       F *UND*	0000000000000000              printf@GLIBC_2.2.5
+000000000040089e g     F .text	000000000000009d              print_ferrari_info
+0000000000400517 g     F .text	00000000000000ab              print_test_case_header
+0000000000000000       F *UND*	0000000000000000              __isoc23_scanf@GLIBC_2.38
+0000000000404040 g       .data	0000000000000000              __data_start
+0000000000000000       F *UND*	0000000000000000              strcmp@GLIBC_2.2.5
+0000000000000000  w      *UND*	0000000000000000              __gmon_start__
+00000000004012e0 g     O .rodata	0000000000000000              .hidden __dso_handle
+00000000004005c2 g     F .text	00000000000001c0              run_interactive_mode
+00000000004012d8 g     O .rodata	0000000000000004              _IO_stdin_used
+0000000000404508 g       .bss	0000000000000000              _end
+0000000000400400 g     F .text	0000000000000005              .hidden _dl_relocate_static_pie
+00000000004003d0 g     F .text	0000000000000026              _start
+0000000000404507 g       .bss	0000000000000000              __bss_start
+000000000040093b g     F .text	0000000000000101              main
+00000000004004b6 g     F .text	0000000000000061              print_header
+0000000000400782 g     F .text	000000000000011c              run_test_suite
+0000000000404508 g     O .data	0000000000000000              .hidden __TMC_END__
+0000000000000000       F *UND*	0000000000000000              sqrt@GLIBC_2.2.5
+000000000040033c g     F .init	0000000000000000              .hidden _init
+
+

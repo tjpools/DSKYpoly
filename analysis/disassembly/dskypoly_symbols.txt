@@ -1,0 +1,61 @@
+
+build/dskypoly:     file format elf64-x86-64
+
+SYMBOL TABLE:
+0000000000000000 l    df *ABS*	0000000000000000              crt1.o
+0000000000401740 l     O .note.ABI-tag	0000000000000020              __abi_tag
+0000000000000000 l    df *ABS*	0000000000000000              crtbegin.o
+0000000000400450 l     F .text	0000000000000000              deregister_tm_clones
+0000000000400480 l     F .text	0000000000000000              register_tm_clones
+00000000004004c0 l     F .text	0000000000000000              __do_global_dtors_aux
+0000000000403058 l     O .bss	0000000000000001              completed.0
+0000000000402e00 l     O .fini_array	0000000000000000              __do_global_dtors_aux_fini_array_entry
+00000000004004f0 l     F .text	0000000000000000              frame_dummy
+0000000000402df8 l     O .init_array	0000000000000000              __frame_dummy_init_array_entry
+0000000000000000 l    df *ABS*	0000000000000000              main.c
+0000000000403060 l     O .bss	0000000000000008              a
+0000000000403068 l     O .bss	0000000000000008              b
+0000000000403070 l     O .bss	0000000000000008              c
+0000000000403078 l     O .bss	0000000000000008              r1_real
+0000000000403080 l     O .bss	0000000000000008              r1_imag
+0000000000403088 l     O .bss	0000000000000008              r2_real
+0000000000403090 l     O .bss	0000000000000008              r2_imag
+0000000000000000 l    df *ABS*	0000000000000000              src/solve_poly_2.asm
+00000000004008fc l       .text	0000000000000000              solve_poly_2.real_roots
+000000000040093a l       .text	0000000000000000              solve_poly_2.complex_roots
+0000000000000000 l    df *ABS*	0000000000000000              crtend.o
+0000000000401718 l     O .eh_frame	0000000000000000              __FRAME_END__
+0000000000000000 l    df *ABS*	0000000000000000              
+0000000000402e08 l     O .dynamic	0000000000000000              _DYNAMIC
+0000000000401610 l       .eh_frame_hdr	0000000000000000              __GNU_EH_FRAME_HDR
+0000000000402fe8 l     O .got.plt	0000000000000000              _GLOBAL_OFFSET_TABLE_
+0000000000000000       F *UND*	0000000000000000              localtime@GLIBC_2.2.5
+0000000000000000       F *UND*	0000000000000000              __libc_start_main@GLIBC_2.34
+0000000000403050  w      .data	0000000000000000              data_start
+0000000000000000       F *UND*	0000000000000000              puts@GLIBC_2.2.5
+0000000000403054 g       .data	0000000000000000              _edata
+0000000000000000       F *UND*	0000000000000000              fclose@GLIBC_2.2.5
+0000000000400978 g     F .fini	0000000000000000              .hidden _fini
+00000000004008b0 g       .text	0000000000000000              solve_poly_2
+0000000000000000       F *UND*	0000000000000000              printf@GLIBC_2.2.5
+0000000000000000       F *UND*	0000000000000000              snprintf@GLIBC_2.2.5
+0000000000000000       F *UND*	0000000000000000              __isoc23_scanf@GLIBC_2.38
+0000000000403050 g       .data	0000000000000000              __data_start
+0000000000000000       F *UND*	0000000000000000              fprintf@GLIBC_2.2.5
+0000000000000000  w      *UND*	0000000000000000              __gmon_start__
+0000000000401398 g     O .rodata	0000000000000000              .hidden __dso_handle
+0000000000401390 g     O .rodata	0000000000000004              _IO_stdin_used
+0000000000000000       F *UND*	0000000000000000              time@GLIBC_2.2.5
+0000000000403098 g       .bss	0000000000000000              _end
+0000000000400440 g     F .text	0000000000000005              .hidden _dl_relocate_static_pie
+0000000000400410 g     F .text	0000000000000026              _start
+00000000004004f6 g     F .text	00000000000000ce              log_event
+0000000000403058 g       .bss	0000000000000000              __bss_start
+000000000040065b g     F .text	0000000000000253              main
+0000000000000000       F *UND*	0000000000000000              fopen@GLIBC_2.2.5
+0000000000000000       F *UND*	0000000000000000              perror@GLIBC_2.2.5
+00000000004005c4 g     F .text	0000000000000097              print_root
+0000000000403058 g     O .data	0000000000000000              .hidden __TMC_END__
+000000000040033c g     F .init	0000000000000000              .hidden _init
+
+

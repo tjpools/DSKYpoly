@@ -127,6 +127,16 @@ test: run
 	@echo "🧪 Testing quadratic: x² - 4x + 4 = 0"
 	@echo "Expected: Root 1 = 2.0000, Root 2 = 2.0000"
 
+# === Quintic Test Targets ===
+test-quintic-unity:
+	@echo "🌟 Testing quintic with 5th roots of unity..."
+	@python3 quintic/test_roots_of_unity.py
+
+test-quintic-visual:
+	@echo "🎨 Generating quintic visualization..."
+	@python3 quintic/test_roots_of_unity.py
+	@echo "📊 Visualization saved to visualizations/quintic_roots_of_unity.png"
+
 # === Tag this version in Git ===
 tag:
 	@git tag -a v1.0 -m "Stable quadratic solver with real/complex/double root support"

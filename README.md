@@ -75,6 +75,30 @@ docker-compose up --build dskypoly-analytics
 
 See [`DOCKER.md`](DOCKER.md) for comprehensive Docker setup and usage.
 
+### **Option 3: Anaconda Navigator (Recommended for Mathematical Exploration)**
+
+For advanced mathematical computing and interactive exploration:
+
+```bash
+# Create conda environment
+conda env create -f environment.yml
+conda activate dskypoly
+
+# Launch Jupyter Lab
+jupyter lab
+
+# Open notebooks/quintic_exploration.ipynb
+```
+
+#### **Anaconda Features**
+- **Interactive Notebooks**: Jupyter Lab for mathematical exploration
+- **Arbitrary Precision**: mpmath for exact hypergeometric calculations
+- **Advanced Visualization**: Plotly for interactive complex plane plots
+- **Educational Content**: Step-by-step quintic polynomial analysis
+- **Cross-Platform**: Works with Windows 11 Anaconda Navigator
+
+See [`ANACONDA.md`](ANACONDA.md) for comprehensive Anaconda setup and mathematical exploration.
+
 ### **Option 2: Native Linux Installation**
 
 #### **Prerequisites**

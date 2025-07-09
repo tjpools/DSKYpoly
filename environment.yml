@@ -1,0 +1,24 @@
+name: dskypoly
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - sympy
+  - matplotlib
+  - plotly
+  - jupyter
+  - jupyterlab
+  - notebook
+  - ipywidgets
+  - mpmath
+  - pandas
+  - seaborn
+  - bokeh
+  - pip
+  - pip:
+    - kaleido  # For plotly static image export
+    - ipympl   # For interactive matplotlib in jupyter
+    - jupyter_contrib_nbextensions

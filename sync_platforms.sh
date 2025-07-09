@@ -48,9 +48,10 @@ case $ENV in
         echo "3. Prepare for Windows/WSL testing"
         echo "4. Show recent changes for iPhone monitoring"
         echo "5. Diagnose git/remote issues"
+        echo "6. Configure git for Windows (fix vim editor)"
         echo ""
         
-        read -p "Choose option (1-5): " choice
+        read -p "Choose option (1-6): " choice
         
         case $choice in
             1)
@@ -163,6 +164,44 @@ Cross-platform compatibility ensured"
                     echo "  - Repository URL: $(git remote get-url origin)"
                 fi
                 ;;
+            6)
+                echo "🔧 Git Configuration for Windows"
+                echo "================================"
+                echo ""
+                echo "This will configure Git to work better on Windows:"
+                echo "- Use Notepad instead of vim for commit messages"
+                echo "- Set up proper line ending handling"
+                echo "- Configure pull strategy"
+                echo ""
+                read -p "Apply Windows git configuration? (y/n): " apply_config
+                
+                if [ "$apply_config" = "y" ] || [ "$apply_config" = "Y" ]; then
+                    echo "🔧 Applying Windows-friendly git configuration..."
+                    
+                    # Editor configuration
+                    git config --global core.editor notepad
+                    echo "✅ Set editor to Notepad"
+                    
+                    # Windows-specific settings
+                    git config --global core.autocrlf true
+                    echo "✅ Configured line ending handling"
+                    
+                    git config --global core.filemode false
+                    echo "✅ Disabled file permission tracking"
+                    
+                    # Pull strategy
+                    git config --global pull.rebase false
+                    echo "✅ Set pull strategy to merge"
+                    
+                    echo ""
+                    echo "🎉 Git configured for Windows!"
+                    echo "💡 No more vim editor during git pulls"
+                    echo "💡 See WINDOWS_GIT.md for more details"
+                else
+                    echo "ℹ️  Configuration skipped"
+                    echo "💡 See WINDOWS_GIT.md for manual setup"
+                fi
+                ;;
         esac
         ;;
         
@@ -222,8 +261,23 @@ Cross-platform compatibility ensured"
         
         echo ""
         echo "🔄 Pull latest changes:"
-        git pull origin quintic-hypergeometric
-        git pull origin reverse-engineering-analysis
+        echo "💡 Note: If vim editor opens, type ':wq' to finish"
+        echo "💡 To fix this permanently: git config --global core.editor notepad"
+        echo "💡 See WINDOWS_GIT.md for complete Windows git setup"
+        echo ""
+        echo "📥 Pulling quintic-hypergeometric branch..."
+        if git pull origin quintic-hypergeometric; then
+            echo "✅ quintic-hypergeometric updated"
+        else
+            echo "⚠️  Issue pulling quintic-hypergeometric"
+        fi
+        echo ""
+        echo "📥 Pulling reverse-engineering-analysis branch..."
+        if git pull origin reverse-engineering-analysis; then
+            echo "✅ reverse-engineering-analysis updated"
+        else
+            echo "⚠️  Issue pulling reverse-engineering-analysis"
+        fi
         ;;
         
     *)

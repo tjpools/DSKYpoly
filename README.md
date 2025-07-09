@@ -79,6 +79,7 @@ See [`DOCKER.md`](DOCKER.md) for comprehensive Docker setup and usage.
 
 For advanced mathematical computing and interactive exploration:
 
+**Command Line Setup:**
 ```bash
 # Create conda environment
 conda env create -f environment.yml
@@ -90,6 +91,13 @@ jupyter lab
 # Open notebooks/quintic_exploration.ipynb
 ```
 
+**Windows 11 Anaconda Navigator GUI:**
+1. Open Anaconda Navigator
+2. Go to Environments → Import
+3. Select `environment.yml` file
+4. Launch JupyterLab or Spyder
+5. Navigate to DSKYpoly project folder
+
 #### **Anaconda Features**
 - **Interactive Notebooks**: Jupyter Lab for mathematical exploration
 - **Arbitrary Precision**: mpmath for exact hypergeometric calculations
@@ -98,6 +106,7 @@ jupyter lab
 - **Cross-Platform**: Works with Windows 11 Anaconda Navigator
 
 See [`ANACONDA.md`](ANACONDA.md) for comprehensive Anaconda setup and mathematical exploration.
+See [`WINDOWS_ANACONDA.md`](WINDOWS_ANACONDA.md) for Windows 11 Navigator GUI setup.
 
 ### **Option 2: Native Linux Installation**
 

@@ -75,6 +75,47 @@ docker-compose up --build dskypoly-analytics
 
 See [`DOCKER.md`](DOCKER.md) for comprehensive Docker setup and usage.
 
+### **Option 2: Visual Studio (Recommended for Windows C/Assembly Development)**
+
+For professional Windows development with integrated C/Assembly and Python support:
+
+#### **Prerequisites**
+- **Visual Studio 2022** with C++ and Python workloads
+- **WSL Ubuntu** (for cross-platform verification)
+- **Git for Windows** (integrated with Visual Studio)
+
+#### **Quick Setup**
+```cmd
+# Clone repository
+git clone https://github.com/tjpools/DSKYpoly.git
+cd DSKYpoly
+
+# Copy Visual Studio solution template
+copy vs_templates\DSKYpoly.sln .
+copy vs_templates\DSKYpoly.Core.vcxproj src\
+
+# Open in Visual Studio
+devenv DSKYpoly.sln
+```
+
+#### **Visual Studio Features**
+- **Integrated Debugging**: Step through C/Assembly code with full debugging support
+- **WSL Integration**: Cross-platform build verification using integrated WSL
+- **Python Support**: Mixed-mode debugging for C ↔ Python integration
+- **Git Integration**: Built-in Team Explorer for version control
+- **IntelliSense**: Full code completion for C/Assembly development
+- **Performance Tools**: Built-in profiling for optimization analysis
+
+#### **Cross-Platform Verification**
+```bash
+# In WSL terminal within Visual Studio
+make clean && make all
+./build/dskypoly
+python quintic/test_roots_of_unity.py
+```
+
+See [`VISUAL_STUDIO.md`](VISUAL_STUDIO.md) for comprehensive Visual Studio setup and workflows.
+
 ### **Option 3: Anaconda Navigator (Recommended for Mathematical Exploration)**
 
 For advanced mathematical computing and interactive exploration:
@@ -108,7 +149,7 @@ jupyter lab
 See [`ANACONDA.md`](ANACONDA.md) for comprehensive Anaconda setup and mathematical exploration.
 See [`WINDOWS_ANACONDA.md`](WINDOWS_ANACONDA.md) for Windows 11 Navigator GUI setup.
 
-### **Option 2: Native Linux Installation**
+### **Option 4: Native Linux Installation**
 
 #### **Prerequisites**
 - **x86-64 Linux system** (tested on Ubuntu/Debian)  

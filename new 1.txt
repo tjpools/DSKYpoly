@@ -1,0 +1,14 @@
+ Directory: C:\Users\tmcla\Documents\DSKYpoly
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----          7/8/2025  11:56 AM                src
+-a----          7/8/2025  11:56 AM             68 .gitattributes
+-a----          7/8/2025  11:56 AM             27 .gitignore
+-a----          7/8/2025  11:56 AM            370 lattice.dot
+-a----          7/8/2025  11:56 AM          25545 lattice.png
+-a----          7/8/2025  11:56 AM           1099 LICENSE
+-a----          7/8/2025  11:56 AM           3609 Makefile
+-a----          7/8/2025  11:56 AM            136 README.md
+-a----          7/8/2025  11:56 AM              6 VERSION

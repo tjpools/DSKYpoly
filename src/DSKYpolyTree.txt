@@ -1,0 +1,32 @@
+tjpools@tjpools:~/Projects$ tree DSKYpoly
+DSKYpoly
+├── DSKYpoly.log
+├── LICENSE
+├── Makefile
+├── README.md
+├── Readme.md
+├── VERSION
+├── build
+│   ├── dskypoly
+│   ├── main.o
+│   └── solve_poly_2.o
+├── cubic
+│   ├── Makefile
+│   ├── grammar
+│   │   ├── README.md
+│   │   ├── automorphism_detailed.dot
+│   │   ├── automorphism_detailed.png
+│   │   └── dskypoly.bnf
+│   ├── src
+│   │   ├── main.c
+│   │   └── solve_poly_3.asm
+│   └── test.asm
+├── lattice.dot
+├── minitest.asm
+└── src
+    ├── dskypoly.py
+    ├── main.c
+    └── solve_poly_2.asm
+
+5 directories, 22 files
+tjpools@tjpools:~/Projects$ 

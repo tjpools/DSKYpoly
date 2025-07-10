@@ -120,6 +120,7 @@ Cross-platform compatibility ensured"
                 echo ""
                 echo "📝 Windows/WSL Commands:"
                 echo "git pull origin quintic-hypergeometric"
+<<<<<<< HEAD
                 echo "git pull origin reverse-engineering-analysis"
                 echo "conda env create -f environment.yml"
                 echo "conda activate dskypoly"
@@ -129,6 +130,11 @@ Cross-platform compatibility ensured"
                 echo "- WINDOWS_TESTING.md (Anaconda Navigator setup)"
                 echo "- WINDOWS_ANACONDA.md (GUI workflow)"
                 echo "- VISUAL_STUDIO.md (Professional development)"
+=======
+                echo "conda env create -f environment.yml"
+                echo "conda activate dskypoly"
+                echo "jupyter lab notebooks/quintic_exploration.ipynb"
+>>>>>>> reverse-engineering-analysis
                 ;;
             4)
                 echo "📱 Recent changes (iPhone-friendly):"
@@ -443,7 +449,10 @@ echo ""
 echo "📚 Quick Reference:"
 echo "- 📱 Mobile docs: MOBILE.md"
 echo "- 🐍 Anaconda setup: ANACONDA.md" 
+<<<<<<< HEAD
 echo "- 🪟 Windows testing: WINDOWS_TESTING.md"
+=======
+>>>>>>> reverse-engineering-analysis
 echo "- 🏗️  Visual Studio: VISUAL_STUDIO.md"
 echo "- 💻 VS Code setup: GIT_VSCODE.md"
 echo "- 🔍 RE analysis: analysis/README.md"

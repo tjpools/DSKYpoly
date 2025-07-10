@@ -17,8 +17,13 @@ dependencies:
   - pandas
   - seaborn
   - bokeh
+  - nasm              # For Fedora assembly development
+  - gcc_linux-64      # Conda GCC for cross-platform consistency
+  - gdb               # Debugging support
+  - make              # Build system
   - pip
   - pip:
     - kaleido  # For plotly static image export
     - ipympl   # For interactive matplotlib in jupyter
     - jupyter_contrib_nbextensions
+    - ghidra-bridge  # Ghidra Python integration (if available)

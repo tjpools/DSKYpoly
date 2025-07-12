@@ -84,6 +84,7 @@ class GhidraAnalyzer:
         for path in possible_paths:
             if path.exists():
                 self.ghidra_headless = path
+                
                 return True
         
         # Try to find ghidra in PATH

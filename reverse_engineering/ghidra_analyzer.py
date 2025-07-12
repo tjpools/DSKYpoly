@@ -62,6 +62,18 @@ class GhidraAnalyzer:
         
     def _check_ghidra_installation(self) -> bool:
         """Check if Ghidra is properly installed and accessible."""
+        # Check for Flatpak Ghidra first
+        try:
+            result = subprocess.run(["flatpak", "list", "--app"], capture_output=True, text=True)
+            if result.returncode == 0 and "org.ghidra_sre.Ghidra" in result.stdout:
+                # Set up Flatpak command
+                self.ghidra_headless = "flatpak_ghidra"
+                print("✅ Found Ghidra Flatpak installation")
+                return True
+        except:
+            pass
+        
+        # Check traditional installation paths
         possible_paths = [
             self.ghidra_path / "support" / "analyzeHeadless",
             Path("/usr/bin/ghidra"),
@@ -85,7 +97,7 @@ class GhidraAnalyzer:
         except:
             pass
         
-        print("⚠️  Ghidra not found. Install with: sudo dnf install ghidra")
+        print("⚠️  Ghidra not found. Install with: sudo dnf install ghidra or flatpak install flathub org.ghidra_sre.Ghidra")
         return False
     
     def analyze_binary(self, binary_path: str, output_format="json") -> Dict[str, Any]:
@@ -140,8 +152,20 @@ class GhidraAnalyzer:
     
     def _run_ghidra_analysis(self, binary_path: Path, project_name: str, analysis_result: Dict) -> Dict:
         """Run Ghidra headless analysis."""
-        try:
-            # Create Ghidra project
+        # Create Ghidra project command
+        if str(self.ghidra_headless) == "flatpak_ghidra":
+            # Use Flatpak command for Ghidra
+            cmd = [
+                "flatpak", "run", "org.ghidra_sre.Ghidra",
+                "--headless",
+                str(self.project_path),
+                project_name,
+                "-import", str(binary_path),
+                "-postScript", "ListFunctionsScript.java",
+                "-deleteProject"  # Clean up after analysis
+            ]
+        else:
+            # Use traditional Ghidra installation
             cmd = [
                 str(self.ghidra_headless),
                 str(self.project_path),
@@ -150,26 +174,27 @@ class GhidraAnalyzer:
                 "-postScript", "ListFunctionsScript.java",
                 "-deleteProject"  # Clean up after analysis
             ]
-            
-            print(f"🔧 Running Ghidra analysis...")
+        
+        print(f"🔧 Running Ghidra analysis...")
+        
+        try:
             result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
             
             if result.returncode == 0:
                 analysis_result = self._parse_ghidra_output(result.stdout, analysis_result)
                 analysis_result['analysis_method'] = 'ghidra_headless'
                 print(f"✅ Ghidra analysis completed successfully")
+                return analysis_result
             else:
-                print(f"⚠️  Ghidra analysis failed, using fallback method")
-                analysis_result = self._fallback_analysis(binary_path, analysis_result)
+                print(f"⚠️  Ghidra analysis failed (exit code {result.returncode}), using fallback method")
                 
         except subprocess.TimeoutExpired:
-            print(f"⚠️  Ghidra analysis timed out, using fallback method")
-            analysis_result = self._fallback_analysis(binary_path, analysis_result)
+            print(f"⚠️  Ghidra analysis timed out after 300 seconds, using fallback method")
         except Exception as e:
             print(f"⚠️  Ghidra analysis error: {e}, using fallback method")
-            analysis_result = self._fallback_analysis(binary_path, analysis_result)
-            
-        return analysis_result
+        
+        # Single fallback call for all failure cases
+        return self._fallback_analysis(binary_path, analysis_result)
     
     def _fallback_analysis(self, binary_path: Path, analysis_result: Dict) -> Dict:
         """Fallback analysis using basic Unix tools."""

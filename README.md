@@ -115,7 +115,14 @@ This project honors the accumulated wisdom of:
 - **Assembly language pioneers** - Direct human-to-silicon communication
 - **Open source community** - Collaborative knowledge building
 
-*"We stand on large shoulders" - Every line of code in this project builds on 2500 years of mathematical discovery.*
+**Educational Pioneers & MIT Lineage**
+- **MIT Instrumentation Laboratory** - Created the Apollo DSKY (Display & Keyboard), demonstrating assembly-level precision for lunar missions
+- **Professor Gilbert Strang (MIT)** - Opened the floodgates to linear algebra understanding for millions through accessible yet rigorous teaching
+- **MIT's "Great Learning" tradition** - Bridging theoretical foundations with practical applications, from Apollo to AI
+
+**The DSKY Connection**: This project's name honors the Apollo Guidance Computer's interface - a perfect example of transparent, understandable human-machine communication where astronauts could see exactly what the computer was thinking through simple numeric displays.
+
+*"We stand on large shoulders" - Every line of code in this project builds on 2500 years of mathematical discovery, from ancient Chinese methods to MIT's educational excellence.*
 
 ## �️ **How to Navigate This Repository**
 

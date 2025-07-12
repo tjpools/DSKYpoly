@@ -25,3 +25,11 @@ lattice.png
 
 # Archive files (optional)
 DSKYpoly-v*.zip
+# Runtime logs
+*.log
+# Backup directories
+*_backup/
+# Runtime logs
+*.log
+# Backup directories
+*_backup/

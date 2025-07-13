@@ -358,6 +358,10 @@ This application embodies the DSKYpoly project philosophy:
    Accessible to curious learners while maintaining mathematical rigor 
    for serious students.
 
+6. "Explanation is Essential in Modeling"
+   In data science and mathematical modeling, equations and algorithms are only part of the story. The true power of a model comes from the explanation that accompanies it: the context, the assumptions, the limitations, and the interpretation of results. See:
+   • data_science/EXPLANATION_AND_MODELS.md
+
 TECHNICAL IMPLEMENTATION:
 
 • Python with tkinter for cross-platform GUI

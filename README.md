@@ -533,8 +533,27 @@ DSKYpoly demonstrates:
 
 This project honors the mathematical legacy of classical algebraists while advancing modern computational techniques.
 
----
 
 *"The quartic yields its secrets through cubic wisdom, but the quintic guards its mysteries with algebraic impossibility."* - DSKYpoly Development Notes
 
 **Built with mathematical rigor and systems programming precision** 🧮⚙️
+
+## 📚 Recommended Reading & Inspirations
+
+This project is inspired not only by mathematical and technical giants, but also by authors who bring personal journey and narrative to technical ideas:
+
+**David Bersinski**
+- Celebrated for blending personal experience with deep technical insight and beautiful prose.
+- His writing reminds us that the story behind the code is as important as the code itself.
+- We honor his tradition by weaving history, philosophy, and personal growth into our technical work.
+
+**Other Inspirations & Recommended Reading**
+- *Where Math Comes From* (George Lakoff & Rafael Núñez) — Cognitive science and the embodied origins of mathematics
+- *Gödel, Escher, Bach: An Eternal Golden Braid* (Douglas Hofstadter) — Interconnectedness of logic, art, and music
+- *Perceptrons* (Marvin Minsky & Seymour Papert) — Foundations and limitations of neural networks
+- George Lakoff (Embodied Cognition)
+- Margaret Hamilton (Apollo Guidance Software)
+- Professor Gilbert Strang (MIT, Linear Algebra)
+- The open source community and all who share their learning journeys
+
+> *"Technical work becomes lasting when it is also a story—of discovery, challenge, and growth."*

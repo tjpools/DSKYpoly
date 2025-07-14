@@ -34,3 +34,19 @@ This project is isomorphic to age-old problems that have shaped human history:
 These three problems, spanning cultures and centuries, reveal an ancient human need: to create systematic, reliable answers to difficult questions. The DSKYpoly project stands in this tradition, embodying the quest for order, understanding, and method in the face of complexity.
 
 "To solve is human; to systematize is civilization."
+
+
+---
+
+The Great Circle Route: A Story of Models, Constraints, and Assembly Language Thinking
+====================================================================================
+
+Recently, a question was posed to an authority on technical issues: "Do airliners fly Great Circle Routes?" The answer received was a simple "No!"—unsatisfying and lacking insight. An answer like this, without explanation or context, leaves the learner as an empty vessel, with nothing to build on or explore further.
+
+Upon further study, the more accurate answer emerged: "Maybe, with constraints."
+
+The Great Circle Route is the mathematically optimal path—the shortest distance between two points on a perfect sphere. In reality, airliners must consider airspace restrictions, weather, regulations, and the Earth's imperfect shape. Thus, the model is a guide, but the real-world answer is nuanced.
+
+This story illustrates the spirit of the DSKYpoly project: valuing not just the technical answer, but the context, the assumptions, and the process. It is the mindset of the "assembly language" thinker—someone who seeks to understand systems at their most fundamental level, appreciating both the model and the constraints that shape its application.
+
+In DSKYpoly, as in life, the best answers are those that reveal the layers beneath the surface, connecting models to meaning and theory to practice. Answers that provide context and explanation empower the learner to think, question, and build new understanding.

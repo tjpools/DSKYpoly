@@ -50,3 +50,15 @@ The Great Circle Route is the mathematically optimal path—the shortest distanc
 This story illustrates the spirit of the DSKYpoly project: valuing not just the technical answer, but the context, the assumptions, and the process. It is the mindset of the "assembly language" thinker—someone who seeks to understand systems at their most fundamental level, appreciating both the model and the constraints that shape its application.
 
 In DSKYpoly, as in life, the best answers are those that reveal the layers beneath the surface, connecting models to meaning and theory to practice. Answers that provide context and explanation empower the learner to think, question, and build new understanding.
+
+
+---
+
+Building to Understand: The Ultimate Lesson
+===========================================
+
+One of the most valuable lessons in learning and problem-solving is this:
+
+"If you want to understand it, build a version of it yourself."
+
+By constructing your own model, tool, or explanation, you move from passive recipient to active creator. This process deepens understanding, reveals hidden complexities, and empowers you to ask better questions. The DSKYpoly project embodies this philosophy—encouraging everyone to explore, build, and truly understand the systems and models that shape our world.

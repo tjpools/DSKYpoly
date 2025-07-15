@@ -156,3 +156,43 @@ The quintic discriminant is a polynomial of degree 59,049 in the coefficients - 
 *"The quintic stands as algebra's Everest - not conquerable by classical means, yet yielding to the persistence of numerical approximation guided by theoretical wisdom."*
 
 **Next Steps:** Implement the reference architecture with our proven 16-byte stack patterns, then build toward the mathematical frontier where algebra meets analysis. 🧮🚀
+
+# DSKYpoly Quintic Solver Toolchain
+
+## Overview
+This project demonstrates the power and clarity of assembly language for mathematical problem solving, specifically the Newton-Raphson method for the quintic equation x⁵ - 1 = 0. It is inspired by the DSKY (Display and Keyboard) interface of the Apollo Guidance Computer, emphasizing transparency, precision, and a direct connection between human logic and machine execution.
+
+## Philosophy: Man vs. Machine, with AI
+Assembly language offers unmatched transparency and control. Every instruction is explicit, making the relationship between human intent and machine action tangible. This project celebrates that clarity, showing how even complex mathematical problems can be solved and visualized at the lowest level.
+
+AI tools (like GitHub Copilot) can accelerate, debug, and explain assembly, but the clarity and precision of hand-written assembly is unique. The best results come from combining human expertise with AI's speed and pattern recognition—a true DSKY approach for the modern era.
+
+## Features
+- Newton-Raphson solver for x⁵ - 1 = 0 in x86-64 NASM assembly
+- C test harness for integration and error handling
+- Bare-metal output using Linux syscalls (no printf)
+- Visual output: all five roots, geometric separators (stars/pentagrams), and iteration/precision reporting
+- Robust error handling for non-convergence and division by zero
+
+## How to Build and Run
+```sh
+nasm -f elf64 Grok_3_quintic_solver.asm
+# For standalone test:
+ld -o quintic_solver Grok_3_quintic_solver.o
+./quintic_solver
+# For C integration:
+gcc -no-pie -o test_quintic_main test_quintic_main.c Grok_3_quintic_solver.o
+./test_quintic_main
+```
+
+## Why Assembly?
+- Maximum transparency: see every step, every register, every memory access
+- Ultimate control: nothing is hidden, nothing is abstracted away
+- Machine clarity: the perfect testbed for exploring the boundary between human logic and machine execution
+
+## The DSKYpoly Vision
+This toolchain is a tribute to the spirit of the Apollo DSKY and the pioneers of both mathematics and computing. It is also a demonstration of how modern AI can work alongside human ingenuity to push the boundaries of what is possible—making the machine not just a tool, but a true partner in discovery.
+
+---
+
+*For questions, ideas, or to contribute, open an issue or pull request on [GitHub](https://github.com/tjpools/DSKYpoly).*

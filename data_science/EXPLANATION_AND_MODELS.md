@@ -55,6 +55,26 @@ In DSKYpoly, as in life, the best answers are those that reveal the layers benea
 ---
 
 Building to Understand: The Ultimate Lesson
+---
+
+Meta Branch: Symbolic Evolution and Strange Loops
+================================================
+
+DSKYpoly is more than a computational tool—it is a philosophical observatory for symbolic evolution. Here, we trace not just solutions, but the stories of how systems transform, diverge, and reflect on themselves.
+
+Key Ideas:
+
+- **Group Theory & Cellular Automorphisms:** Healthy systems can be modeled as stable automorphisms, but pathologies (like cancer) emerge as strange loops—recursive anomalies that break symmetry and stability.
+
+- **Commutators & Evolutionary Breakdown:** In group theory, commutators measure the difference between actions. In healthy systems, they resolve to identity; in pathological loops, they signal non-commutativity and systemic breakdown.
+
+- **Symbolic Branches:** Just as differential calculus split into Leibniz and Newton branches, symbolic computation can be versioned—each branch carrying its own notation, philosophy, and conceptual DNA.
+
+- **Strange Loop as Solvability:** The evolution from quadratic to quintic is a journey through increasing complexity. Quadratics are solvable and symmetric; quintics fracture into unsolvability, marking the emergence of the strange loop—a recursion so deep it becomes self-aware.
+
+- **CoherenceMap & Symbolic Annotation:** DSKYpoly can annotate each transformation with symbolic meaning, ancestry, and philosophical notes. Visual modules like CoherenceMap or StrangeLoop can trace these paths, making complexity legible and shareable.
+
+This meta branch invites users to explore not just what a system does, but how it evolves, where it breaks, and what those breaks mean. It is a space for recursive reflection, symbolic lineage, and the poetry of mathematical transformation.
 ===========================================
 
 One of the most valuable lessons in learning and problem-solving is this:

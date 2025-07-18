@@ -1,0 +1,118 @@
+
+quintic/build/dskypoly5:     file format elf64-x86-64
+
+SYMBOL TABLE:
+0000000000000000 l    df *ABS*	0000000000000000              crt1.o
+0000000000401ff0 l     O .note.ABI-tag	0000000000000020              __abi_tag
+0000000000000000 l    df *ABS*	0000000000000000              main.c
+0000000000404060 l     O .data	0000000000000ca8              test_cases
+0000000000000000 l    df *ABS*	0000000000000000              crtbegin.o
+00000000004004b0 l     F .text	0000000000000000              deregister_tm_clones
+00000000004004e0 l     F .text	0000000000000000              register_tm_clones
+0000000000400520 l     F .text	0000000000000000              __do_global_dtors_aux
+0000000000404f68 l     O .bss	0000000000000001              completed.0
+0000000000403df0 l     O .fini_array	0000000000000000              __do_global_dtors_aux_fini_array_entry
+0000000000400550 l     F .text	0000000000000000              frame_dummy
+0000000000403de8 l     O .init_array	0000000000000000              __frame_dummy_init_array_entry
+0000000000000000 l    df *ABS*	0000000000000000              src/solve_poly_5_reference.asm
+0000000000404d08 l       .data	0000000000000000              quintic_tolerance
+0000000000404d10 l       .data	0000000000000000              max_iterations
+0000000000404d18 l       .data	0000000000000000              unity_root_real
+0000000000404d20 l       .data	0000000000000000              unity_root_imag
+0000000000404d28 l       .data	0000000000000000              debug_enter
+0000000000404d4f l       .data	0000000000000000              debug_coeffs
+0000000000404d90 l       .data	0000000000000000              debug_method
+0000000000404dc6 l       .data	0000000000000000              debug_galois
+0000000000404df5 l       .data	0000000000000000              debug_solvable
+0000000000404e21 l       .data	0000000000000000              debug_complete
+0000000000404f70 l       .bss	0000000000000000              coeffs_storage
+0000000000400936 l       .text	0000000000000000              stack_aligned
+000000000040094d l       .text	0000000000000000              quintic_reference_exit
+0000000000400967 l       .text	0000000000000000              check_monomial_form
+00000000004009ba l       .text	0000000000000000              not_monomial
+00000000004009c7 l       .text	0000000000000000              monomial_check_end
+00000000004009c9 l       .text	0000000000000000              check_special_cases
+0000000000401e40 l       .rodata	0000000000000000              omega_0_real
+0000000000401e48 l       .rodata	0000000000000000              omega_0_imag
+0000000000401e50 l       .rodata	0000000000000000              omega_1_real
+0000000000401e58 l       .rodata	0000000000000000              omega_1_imag
+0000000000401e60 l       .rodata	0000000000000000              omega_2_real
+0000000000401e68 l       .rodata	0000000000000000              omega_2_imag
+0000000000401e70 l       .rodata	0000000000000000              omega_3_real
+0000000000401e78 l       .rodata	0000000000000000              omega_3_imag
+0000000000401e80 l       .rodata	0000000000000000              omega_4_real
+0000000000401e88 l       .rodata	0000000000000000              omega_4_imag
+0000000000000000 l    df *ABS*	0000000000000000              src/solve_poly_5_special.asm
+0000000000404e48 l       .data	0000000000000000              two_pi
+0000000000404e50 l       .data	0000000000000000              fifth_pi
+0000000000404e58 l       .data	0000000000000000              tolerance
+0000000000404e60 l       .data	0000000000000000              debug_special
+0000000000404e7e l       .data	0000000000000000              debug_monomial
+0000000000404ea2 l       .data	0000000000000000              debug_roots
+0000000000404eb9 l       .data	0000000000000000              debug_binomial
+0000000000404ee3 l       .data	0000000000000000              debug_factor
+0000000000404f00 l       .data	0000000000000000              debug_general
+0000000000404f2a l       .data	0000000000000000              debug_complete
+0000000000404fb0 l       .bss	0000000000000000              roots_real
+0000000000404fd8 l       .bss	0000000000000000              roots_imag
+0000000000405000 l       .bss	0000000000000000              root_count
+0000000000405008 l       .bss	0000000000000000              coeff_a
+0000000000405010 l       .bss	0000000000000000              coeff_b
+0000000000405018 l       .bss	0000000000000000              coeff_c
+0000000000405020 l       .bss	0000000000000000              coeff_d
+0000000000405028 l       .bss	0000000000000000              coeff_e
+0000000000405030 l       .bss	0000000000000000              coeff_f
+0000000000400a5f l       .text	0000000000000000              monomial_case_detected
+0000000000400a66 l       .text	0000000000000000              binomial_case_detected
+0000000000400a79 l       .text	0000000000000000              factorizable_case_detected
+0000000000400a8c l       .text	0000000000000000              special_cases_exit
+0000000000400aab l       .text	0000000000000000              check_monomial_quintic
+0000000000400b0f l       .text	0000000000000000              not_monomial
+0000000000400b16 l       .text	0000000000000000              check_binomial_quintic
+0000000000400b66 l       .text	0000000000000000              not_binomial
+0000000000400b6d l       .text	0000000000000000              check_factorizable_quintic
+0000000000400b95 l       .text	0000000000000000              factorizable_detected
+0000000000400b9c l       .text	0000000000000000              solve_monomial_quintic
+0000000000400c25 l       .text	0000000000000000              root_loop
+0000000000400cca l       .text	0000000000000000              zero_target
+0000000000400cd0 l       .text	0000000000000000              zero_loop
+0000000000400d00 l       .text	0000000000000000              division_by_zero
+0000000000400d12 l       .text	0000000000000000              roots_complete
+0000000000401e90 l       .rodata	0000000000000000              five_const
+0000000000000000 l    df *ABS*	0000000000000000              crtend.o
+0000000000401fcc l     O .eh_frame	0000000000000000              __FRAME_END__
+0000000000000000 l    df *ABS*	0000000000000000              
+0000000000403df8 l     O .dynamic	0000000000000000              _DYNAMIC
+0000000000401e98 l       .eh_frame_hdr	0000000000000000              __GNU_EH_FRAME_HDR
+0000000000403fe8 l     O .got.plt	0000000000000000              _GLOBAL_OFFSET_TABLE_
+0000000000400670 g     F .text	00000000000001b4              test_quintic_case
+0000000000000000       F *UND*	0000000000000000              putchar@GLIBC_2.2.5
+0000000000000000       F *UND*	0000000000000000              __libc_start_main@GLIBC_2.34
+0000000000404f60 g     O .bss	0000000000000008              stdout@GLIBC_2.2.5
+0000000000404040  w      .data	0000000000000000              data_start
+0000000000000000       F *UND*	0000000000000000              puts@GLIBC_2.2.5
+0000000000404f53 g       .data	0000000000000000              _edata
+0000000000000000       F *UND*	0000000000000000              pow@GLIBC_2.29
+0000000000400d24 g     F .fini	0000000000000000              .hidden _fini
+0000000000000000       F *UND*	0000000000000000              printf@GLIBC_2.2.5
+00000000004005f0 g     F .text	0000000000000076              display_galois_insights
+0000000000000000       F *UND*	0000000000000000              cos@GLIBC_2.2.5
+0000000000404040 g       .data	0000000000000000              __data_start
+0000000000000000  w      *UND*	0000000000000000              __gmon_start__
+0000000000401388 g     O .rodata	0000000000000000              .hidden __dso_handle
+0000000000401380 g     O .rodata	0000000000000004              _IO_stdin_used
+0000000000000000       F *UND*	0000000000000000              fflush@GLIBC_2.2.5
+0000000000405038 g       .bss	0000000000000000              _end
+00000000004004a0 g     F .text	0000000000000005              .hidden _dl_relocate_static_pie
+0000000000400470 g     F .text	0000000000000026              _start
+00000000004009d0 g       .text	0000000000000000              solve_poly_5_special
+0000000000400830 g       .text	0000000000000000              solve_poly_5_reference
+0000000000404f60 g       .bss	0000000000000000              __bss_start
+00000000004003f0 g     F .text	000000000000007c              main
+0000000000000000       F *UND*	0000000000000000              sin@GLIBC_2.2.5
+0000000000000000       F *UND*	0000000000000000              fabs@GLIBC_2.2.5
+0000000000404f58 g     O .data	0000000000000000              .hidden __TMC_END__
+0000000000400560 g     F .text	000000000000008a              display_quintic_context
+000000000040033c g     F .init	0000000000000000              .hidden _init
+
+

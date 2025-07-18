@@ -1,0 +1,172 @@
+0ez(
+PTE1
+H=80@
+/lib64/ld-linux-x86-64.so.2
+__gmon_start__
+puts
+__isoc23_scanf
+__libc_start_main
+stderr
+printf
+fwrite
+libm.so.6
+libc.so.6
+GLIBC_2.38
+GLIBC_2.2.5
+GLIBC_2.34
+=== DSKYpoly Cubic Solver ===
+Enter coefficients for ax
+ + bx
+ + cx + d = 0
+Invalid input. Coefficient 'a' must be non-zero.
+Solving: %.4fx
+ + %.4fx
+ + %.4fx + %.4f = 0
+;*3$"
+Cubic root: %.6f
+GCC: (GNU) 15.1.1 20250521 (Red Hat 15.1.1-2)
+AV:4p1294
+RV:running gcc 15.1.1 20250521
+BV:annobin gcc 15.1.1 20250521
+GW:0x7d60562 ../sysdeps/x86/abi-note.c
+SP:3
+SC:1
+CF:8 ../sysdeps/x86/abi-note.c
+FL:0 ../sysdeps/x86/abi-note.c
+GA:1
+PI:4
+SE:0
+iS:0
+GW:0x7d60562 init.c
+CF:8 init.c
+FL:0 init.c
+GW:0x7d60562 static-reloc.c
+SP:0 static-reloc.c
+CF:8 static-reloc.c
+FL:0 static-reloc.c
+_IO_read_end
+_IO_FILE
+stderr
+_IO_save_base
+_IO_buf_end
+_IO_read_ptr
+_mode
+__off64_t
+_chain
+unsigned char
+_freeres_buf
+_IO_write_base
+short unsigned int
+_short_backupbuf
+_prevchain
+_IO_save_end
+_IO_lock_t
+GNU C23 15.1.1 20250521 (Red Hat 15.1.1-2) -mtune=generic -march=x86-64 -g
+_markers
+double
+main
+_flags2
+_old_offset
+_lock
+_IO_marker
+_cur_column
+long long unsigned int
+_IO_codecvt
+_fileno
+_IO_buf_base
+_vtable_offset
+_freeres_list
+__off_t
+_unused2
+long long int
+__isoc23_scanf
+printf
+_IO_write_end
+short int
+_IO_backup_base
+_flags
+solve_cubic
+_IO_write_ptr
+_IO_wide_data
+_IO_read_base
+_shortbuf
+/home/tjpools/assembly-projects/DSKYpoly/cubic
+src/main.c
+/usr/include/bits
+/usr/include/bits/types
+/usr/include
+types.h
+struct_FILE.h
+stdio.h
+crt1.o
+__abi_tag
+crtbegin.o
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+main.c
+src/solve_poly_3.asm
+fmt_result
+crtend.o
+__FRAME_END__
+_DYNAMIC
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+__libc_start_main@GLIBC_2.34
+solve_cubic
+puts@GLIBC_2.2.5
+_edata
+_fini
+printf@GLIBC_2.2.5
+__isoc23_scanf@GLIBC_2.38
+__data_start
+__gmon_start__
+__dso_handle
+_IO_stdin_used
+_end
+_dl_relocate_static_pie
+__bss_start
+main
+fwrite@GLIBC_2.2.5
+__TMC_END__
+_init
+stderr@GLIBC_2.2.5
+.symtab
+.strtab
+.shstrtab
+.note.gnu.build-id
+.init
+.text
+.fini
+.interp
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.rodata
+.eh_frame_hdr
+.eh_frame
+.note.gnu.property
+.note.ABI-tag
+.init_array
+.fini_array
+.dynamic
+.got
+.got.plt
+.data
+.bss
+.comment
+.annobin.notes
+.gnu.build.attributes
+.debug_aranges
+.debug_info
+.debug_abbrev
+.debug_line
+.debug_str
+.debug_line_str

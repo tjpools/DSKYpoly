@@ -1,0 +1,167 @@
+# DSKYpoly Analytics Environment
+<<<<<<< HEAD
+# Extended Docker image with Jupyter and advanced mathematical tools
+
+FROM ubuntu:22.04
+
+# Set up environment
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TERM=xterm-256color
+=======
+# Extended Ubuntu image with Jupyter and advanced mathematical libraries
+
+FROM ubuntu:22.04
+
+# Avoid interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Set working directory
+WORKDIR /workspace
+>>>>>>> main
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    gcc \
+    nasm \
+    make \
+    git \
+<<<<<<< HEAD
+    vim \
+    nano \
+    tree \
+    graphviz \
+    python3 \
+    python3-pip \
+    curl \
+    wget \
+    less \
+    man-db \
+=======
+    tree \
+    vim \
+    nano \
+    curl \
+    wget \
+    graphviz \
+    python3 \
+    python3-pip \
+    python3-venv \
+>>>>>>> main
+    nodejs \
+    npm \
+    && rm -rf /var/lib/apt/lists/*
+
+<<<<<<< HEAD
+# Install Python packages for analysis and visualization
+RUN pip3 install \
+    numpy \
+    matplotlib \
+    scipy \
+    sympy \
+    jupyter \
+    jupyterlab \
+=======
+# Create Python virtual environment
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Install comprehensive Python ecosystem for mathematical analysis
+RUN pip install --no-cache-dir \
+    jupyter \
+    jupyterlab \
+    matplotlib \
+    numpy \
+    scipy \
+    sympy \
+>>>>>>> main
+    pandas \
+    seaborn \
+    plotly \
+    bokeh \
+    networkx \
+<<<<<<< HEAD
+    graphviz \
+    ipywidgets
+
+# Create working directory
+WORKDIR /workspace
+
+# Copy the entire project
+COPY . /workspace/
+
+# Set executable permissions for test programs
+RUN find /workspace -name "test_*" -type f -exec chmod +x {} \; || true
+
+# Build all components
+RUN cd /workspace && make -f Makefile clean || true
+RUN cd /workspace && make -f Makefile all || true
+
+# Build cubic solver
+RUN cd /workspace/cubic && make clean || true
+RUN cd /workspace/cubic && make all || true
+
+# Build quartic solver
+RUN cd /workspace/quartic && make clean || true
+RUN cd /workspace/quartic && make all || true
+
+# Build quintic solver
+RUN cd /workspace/quintic && make clean || true
+RUN cd /workspace/quintic && make all || true
+
+# Generate visualization files
+RUN cd /workspace/quartic/grammar && dot -Tpng automorphism_detailed.dot -o automorphism_detailed.png || true
+
+# Create Jupyter configuration
+RUN mkdir -p /root/.jupyter
+RUN echo "c.NotebookApp.ip = '0.0.0.0'" > /root/.jupyter/jupyter_notebook_config.py
+=======
+    scikit-learn \
+    ipywidgets \
+    ipykernel \
+    notebook
+
+# Install JupyterLab extensions
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build || true
+RUN jupyter lab build --dev-build=False --minimize=False || true
+
+# Set environment variables
+ENV TERM=xterm-256color
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+ENV JUPYTER_ENABLE_LAB=yes
+
+# Create necessary directories
+RUN mkdir -p /workspace/build /workspace/src /workspace/include /data /workspace/notebooks
+
+# Copy project files
+COPY . /workspace/
+
+# Set permissions for executables
+RUN chmod +x /workspace/src/dskypoly.py 2>/dev/null || true
+
+# Expose Jupyter port
+EXPOSE 8888
+
+# Create Jupyter configuration
+RUN jupyter notebook --generate-config
+RUN echo "c.NotebookApp.ip = '0.0.0.0'" >> /root/.jupyter/jupyter_notebook_config.py
+>>>>>>> main
+RUN echo "c.NotebookApp.port = 8888" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.open_browser = False" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.allow_root = True" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.NotebookApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py
+
+<<<<<<< HEAD
+# Create analysis notebooks directory
+RUN mkdir -p /workspace/notebooks
+
+# Expose Jupyter port
+EXPOSE 8888
+
+# Set up container entrypoint
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--notebook-dir=/workspace"]
+=======
+# Default command starts Jupyter Lab
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root", "--NotebookApp.token=''"]
+>>>>>>> main

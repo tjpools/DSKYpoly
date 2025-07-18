@@ -23,7 +23,7 @@ OBJ = $(BUILD)/main.o $(BUILD)/solve_poly_2.o
 EXE = $(BUILD)/dskypoly
 
 # Targets we can invoke from terminal
-.PHONY: all clean run
+.PHONY: all clean run test log_structure debug check version doctor lattice runpy runpy-symbolic tag
 
 # === Core Build Rules ===
 all: $(EXE) log_structure debug check
@@ -36,6 +36,7 @@ $(EXE): $(OBJ)
 # === Compile C source ===
 $(BUILD)/main.o: $(C_SRC)
 	@echo "📐 Compiling C source..."
+	@mkdir -p $(BUILD)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 # === Assemble NASM source ===
@@ -53,6 +54,7 @@ clean:
 	@echo "♻️ Cleaning build files..."
 	rm -rf $(BUILD)/*.o $(EXE)
 
+# === Log project structure ===
 log_structure:
 	@echo "================================================================"
 	@echo "Logging project structure ..."
@@ -61,6 +63,7 @@ log_structure:
 	@tree -L 2 . >> DSKYpoly.log
 	@echo "" >> DSKYpoly.log
 
+# === Debug info ===
 debug:
 	@echo "================================================================"
 	@echo "Debug Info:"
@@ -76,6 +79,7 @@ debug:
 	@echo "ASFLAGS: $(ASFLAGS)"
 	@echo "LDFLAGS: $(LDFLAGS)"
 
+# === Pre-build checks ===
 check:
 	@echo "================================================================"
 	@echo "🔧 Current directory: $(shell pwd)"
@@ -90,6 +94,7 @@ check:
 	@tree -L 2 . >> DSKYpoly.log
 	@echo "" >> DSKYpoly.log
 
+# === Git version info ===
 version:
 	@echo "================================================================"
 	@echo "🌐 Git Version Info:"
@@ -100,16 +105,39 @@ version:
 	@git log -1 --pretty=format:"[%ad] %h - %s" >> DSKYpoly.log
 	@echo "" >> DSKYpoly.log
 
+# === Makefile hygiene check ===
 doctor:
 	@echo "================================================================="
 	@echo "🕵️ Running Makefile diagnostics..."
 	@grep -n '^[ ]\+[^#[:space:]]' Makefile && echo "⚠️ Found lines starting with spaces!" || echo "👌 No space-indented commands found."
 
+# === Generate lattice visualization ===
 lattice:
 	dot -Tpng lattice.dot -o lattice.png
 
+# === Run Python symbolic interface ===
 runpy:
 	@./src/dskypoly.py 1 -3 2
 
 runpy-symbolic:
 	@./src/dskypoly.py "x² - 3x + 2"
+
+# === Run a symbolic test case ===
+test: run
+	@echo "🧪 Testing quadratic: x² - 4x + 4 = 0"
+	@echo "Expected: Root 1 = 2.0000, Root 2 = 2.0000"
+
+# === Quintic Test Targets ===
+test-quintic-unity:
+	@echo "🌟 Testing quintic with 5th roots of unity..."
+	@python3 quintic/test_roots_of_unity.py
+
+test-quintic-visual:
+	@echo "🎨 Generating quintic visualization..."
+	@python3 quintic/test_roots_of_unity.py
+	@echo "📊 Visualization saved to visualizations/quintic_roots_of_unity.png"
+
+# === Tag this version in Git ===
+tag:
+	@git tag -a v1.0 -m "Stable quadratic solver with real/complex/double root support"
+	@git push origin v1.0

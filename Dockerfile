@@ -1,76 +1,68 @@
-<<<<<<< HEAD
 # DSKYpoly: Containerized Mathematical Computation Environment
 # A Docker image for exploring polynomial solvers across platforms
 
 FROM ubuntu:22.04
 
-# Set up environment
-ENV DEBIAN_FRONTEND=noninteractive
-ENV TERM=xterm-256color
-=======
-# DSKYpoly Development Environment
-# Base Ubuntu image for C/Assembly development with mathematical computation tools
-
-FROM ubuntu:22.04
-
 # Avoid interactive prompts during package installation
 ENV DEBIAN_FRONTEND=noninteractive
+ENV TERM=xterm-256color
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
 
 # Set working directory
 WORKDIR /workspace
->>>>>>> main
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
+
+# Install system dependencies (with --no-install-recommends) and create non-root user
+RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     gcc \
     nasm \
     make \
     git \
-<<<<<<< HEAD
     vim \
     nano \
     tree \
     graphviz \
     python3 \
     python3-pip \
+    python3-venv \
     curl \
     wget \
     less \
     man-db \
-    && rm -rf /var/lib/apt/lists/*
+    ca-certificates \
+    && rm -rf /var/lib/apt/lists/* \
+    && useradd -ms /bin/bash dskypolyuser \
+    && chown -R dskypolyuser:dskypolyuser /workspace
+
 
 # Install Python packages for analysis and visualization
+COPY requirements.txt /tmp/requirements.txt
 RUN pip3 install --upgrade pip && \
-    pip3 install numpy matplotlib scipy sympy jupyter notebook pandas
+    pip3 install -r /tmp/requirements.txt
 
-# Create working directory
-WORKDIR /workspace
 
-# Copy the entire project
+# Copy the rest of the project
 COPY . /workspace/
 
-# Set executable permissions for test programs
-RUN find /workspace -name "test_*" -type f -exec chmod +x {} \; || true
 
-# Build all components
-RUN cd /workspace && make -f Makefile clean || true
-RUN cd /workspace && make -f Makefile all || true
+# Set executable permissions for test programs and scripts
+RUN find /workspace -name "test_*" -type f -exec chmod +x {} \; || true && \
+    chmod +x /workspace/src/dskypoly.py 2>/dev/null || true
 
-# Build cubic solver
-RUN cd /workspace/cubic && make clean || true
-RUN cd /workspace/cubic && make all || true
 
-# Build quartic solver
-RUN cd /workspace/quartic && make clean || true
-RUN cd /workspace/quartic && make all || true
+# Build all components and generate visualization files (ignore errors if Makefile or dirs are missing)
+RUN cd /workspace && make -f Makefile clean || true && \
+    cd /workspace && make -f Makefile all || true && \
+    cd /workspace/cubic && make clean || true && \
+    cd /workspace/cubic && make all || true && \
+    cd /workspace/quartic && make clean || true && \
+    cd /workspace/quartic && make all || true && \
+    cd /workspace/quintic && make clean || true && \
+    cd /workspace/quintic && make all || true && \
+    cd /workspace/quartic/grammar && dot -Tpng automorphism_detailed.dot -o automorphism_detailed.png || true
 
-# Build quintic solver
-RUN cd /workspace/quintic && make clean || true
-RUN cd /workspace/quintic && make all || true
-
-# Generate visualization files
-RUN cd /workspace/quartic/grammar && dot -Tpng automorphism_detailed.dot -o automorphism_detailed.png || true
 
 # Create a startup script
 RUN echo '#!/bin/bash' > /workspace/container_welcome.sh && \
@@ -91,47 +83,9 @@ RUN echo '#!/bin/bash' > /workspace/container_welcome.sh && \
     echo 'echo "=================================================="' >> /workspace/container_welcome.sh && \
     chmod +x /workspace/container_welcome.sh
 
+
+# Switch to non-root user
+USER dskypolyuser
+
 # Set up container entrypoint
 ENTRYPOINT ["/workspace/container_welcome.sh"]
-=======
-    tree \
-    vim \
-    nano \
-    curl \
-    wget \
-    graphviz \
-    python3 \
-    python3-pip \
-    python3-venv \
-    && rm -rf /var/lib/apt/lists/*
-
-# Create Python virtual environment
-RUN python3 -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
-
-# Install Python dependencies for mathematical computation
-RUN pip install --no-cache-dir \
-    matplotlib \
-    numpy \
-    scipy \
-    sympy \
-    jupyter \
-    ipython
-
-# Set environment variables
-ENV TERM=xterm-256color
-ENV LANG=C.UTF-8
-ENV LC_ALL=C.UTF-8
-
-# Create necessary directories
-RUN mkdir -p /workspace/build /workspace/src /workspace/include /data
-
-# Copy project files
-COPY . /workspace/
-
-# Set permissions for executables
-RUN chmod +x /workspace/src/dskypoly.py 2>/dev/null || true
-
-# Default command
->>>>>>> main
-CMD ["/bin/bash"]

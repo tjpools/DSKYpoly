@@ -1,5 +1,4 @@
-; hello_printf.asm - Hello World using printf (nasm, x86-64, Linux)
-
+;**************************************************************************************
 ; hello_printf.asm - Hello World using printf (nasm, x86-64, Linux)
 ;
 ; Build:
@@ -11,7 +10,7 @@
 ; This program demonstrates calling the C library printf function from NASM assembly.
 ; It prints "Hello, world!" followed by a newline to standard output.
 ; The program uses the System V AMD64 ABI calling convention (Linux x86-64).
-
+;***************************************************************************************
 section .data
     ; The message to print, null-terminated (required by printf)
     msg db "Hello, world!", 0xA, 0

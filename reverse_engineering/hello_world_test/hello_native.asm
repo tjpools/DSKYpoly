@@ -1,5 +1,5 @@
-; hello_native.asm - Hello World using native Linux syscalls (nasm, x86-64)
 
+;***************************************************************************************
 ; hello_native.asm - Hello World using native Linux syscalls (nasm, x86-64)
 ;
 ; Build:
@@ -8,13 +8,15 @@
 ;
 ; Run:
 ;   ./hello_native
-
+; This program demonstrates a simple "Hello, world!" output using Linux system calls.
+; It prints "Hello, world!" followed by a newline to standard output.
+;***************************************************************************************
 section .data
-    msg db "Hello, world!", 0xA
-    len equ $-msg
+msg db "Hello, world!", 0xA
+len equ $-msg
 
 section .text
-    global _start
+global _start
 
 _start:
     mov rax, 1          ; sys_write

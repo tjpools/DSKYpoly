@@ -1,0 +1,82 @@
+; === DSKYpoly-4 Mathematical Grammar (BNF) ===
+; Formal grammar for Ferrari's Method quartic polynomial solving
+
+; === Top-level Ferrari Method ===
+<ferrari-method> ::= <input-validation> <depress-quartic> <resolvent-cubic> <extract-roots>
+
+; === Input Processing ===
+<input-validation> ::= <quartic-polynomial> <leading-coefficient-check>
+<quartic-polynomial> ::= <coefficient> "x^4" "+" <coefficient> "x^3" "+" <coefficient> "x^2" "+" <coefficient> "x" "+" <coefficient>
+<leading-coefficient-check> ::= "if" <coefficient> "=" "0" "then" <error> "else" <continue>
+
+; === Phase 1: Depress Quartic ===
+<depress-quartic> ::= <substitution> <coefficient-transformation>
+<substitution> ::= "y" "=" "x" "+" "b/(4a)"
+<coefficient-transformation> ::= <compute-p> <compute-q> <compute-r>
+
+<compute-p> ::= "p" "=" "c/a" "-" "3b²/(8a²)"
+<compute-q> ::= "q" "=" "b³/(8a³)" "-" "bc/(2a²)" "+" "d/a"  
+<compute-r> ::= "r" "=" "-3b⁴/(256a⁴)" "+" "cb²/(16a³)" "-" "bd/(4a²)" "+" "e/a"
+
+; === Phase 2: Resolvent Cubic ===
+<resolvent-cubic> ::= <cubic-setup> <cubic-coefficients>
+<cubic-setup> ::= "8t³" "+" "8pt²" "+" "(2p²-8r)t" "+" "(-q²)" "=" "0"
+<cubic-coefficients> ::= <coefficient-A> <coefficient-B> <coefficient-C> <coefficient-D>
+
+<coefficient-A> ::= "8"
+<coefficient-B> ::= "8p"
+<coefficient-C> ::= "2p²" "-" "8r"
+<coefficient-D> ::= "-q²"
+
+; === Phase 3: Cubic Solution (Simplified) ===
+<solve-cubic> ::= <cardano-method> | <numerical-approximation>
+<cardano-method> ::= <discriminant-analysis> <root-extraction>
+<discriminant-analysis> ::= "Δ" "=" "-4p³" "-" "27q²"
+<numerical-approximation> ::= <iterative-method> | <closed-form-approximation>
+
+; === Phase 4: Root Extraction ===
+<extract-roots> ::= <quartic-roots> <back-substitution>
+<quartic-roots> ::= <real-roots> | <complex-roots> | <mixed-roots>
+<back-substitution> ::= "x" "=" "y" "-" "b/(4a)"
+
+; === Implementation Architecture ===
+<implementation> ::= <reference-architecture> | <production-implementation>
+
+<reference-architecture> ::= <stable-stack-layout> <placeholder-calculations> <architectural-validation>
+<production-implementation> ::= <real-ferrari-math> <numerical-precision> <edge-case-handling>
+
+; === Stack Layout Grammar ===
+<stack-layout> ::= <input-coefficients> <working-space> <output-storage>
+<input-coefficients> ::= <coefficient-a> <coefficient-b> <coefficient-c> <coefficient-d> <coefficient-e>
+<working-space> ::= <intermediate-values> <transformation-results>
+
+; === Register Management ===
+<register-usage> ::= <xmm-registers> <general-registers> <stack-pointer>
+<xmm-registers> ::= "xmm0" | "xmm1" | "xmm2" | "xmm3" | "xmm4" | "xmm5" | "xmm6" | "xmm7"
+<general-registers> ::= "rax" | "rbx" | "rcx" | "rdx" | "rdi" | "rsi" | "rsp" | "rbp"
+
+; === Error Handling ===
+<error-cases> ::= <leading-zero-error> | <numerical-overflow> | <invalid-input>
+<leading-zero-error> ::= "if" "a" "=" "0" "then" "error: not quartic"
+
+; === Output Formats ===
+<output> ::= <real-root> | <complex-root> | <multiple-root>
+<real-root> ::= <floating-point-number>
+<complex-root> ::= <real-part> "+" <imaginary-part> "i"
+
+; === Scaling Patterns for Quintic ===
+<quintic-extension> ::= <additional-coefficient> <numerical-methods> <special-cases>
+<additional-coefficient> ::= <coefficient-f>
+<numerical-methods> ::= <newton-raphson> | <aberth-method> | <hybrid-approach>
+
+; === Terminal Symbols ===
+<coefficient> ::= <floating-point-number>
+<floating-point-number> ::= ["-"] <digit>+ ["." <digit>+]
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+; === Comments and Metadata ===
+; This grammar defines both mathematical transformations and computational implementation
+; Reference Architecture: Proven stable patterns for quintic scaling
+; Production Implementation: Real Ferrari mathematics with numerical considerations
+; Stack Layout: 16-byte aligned for x86-64 ABI compliance
+; Quintic Ready: Grammar patterns extend directly to 5th degree polynomials

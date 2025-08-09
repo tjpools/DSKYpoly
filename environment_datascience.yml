@@ -1,0 +1,129 @@
+name: dskypoly-datascience
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Core Python
+  - python=3.11
+  
+  # Mathematical Computing (existing)
+  - numpy>=1.24
+  - scipy>=1.10
+  - sympy>=1.12
+  - mpmath>=1.3
+  
+  # Data Science Core
+  - pandas>=2.0
+  - scikit-learn>=1.3
+  - statsmodels>=0.14
+  - polars>=0.19  # Fast dataframes
+  
+  # Visualization (enhanced)
+  - matplotlib>=3.7
+  - plotly>=5.15
+  - bokeh>=3.0
+  - seaborn>=0.12
+  - altair>=5.0
+  - holoviews
+  
+  # Interactive Computing
+  - jupyter
+  - jupyterlab>=4.0
+  - notebook
+  - ipywidgets>=8.0
+  - ipympl
+  - voila  # Turn notebooks into web apps
+  
+  # Machine Learning
+  - xgboost>=1.7
+  - lightgbm>=4.0
+  - catboost>=1.2
+  
+  # Optimization & Advanced Math
+  - cvxpy>=1.3  # Convex optimization
+  - networkx>=3.0  # Graph theory
+  - igraph  # Fast graph algorithms
+  
+  # Time Series Analysis
+  - prophet>=1.1  # Facebook's time series tool
+  - arch>=6.0  # ARCH/GARCH models
+  
+  # Financial Data
+  - yfinance>=0.2
+  - quantlib>=1.3
+  
+  # Statistical Computing
+  - pymc>=5.0  # Bayesian modeling
+  - arviz>=0.16  # Bayesian visualization
+  
+  # Performance Computing
+  - numba>=0.58  # JIT compilation
+  - dask>=2023.0  # Parallel computing
+  - joblib>=1.3  # Parallel processing
+  
+  # Data Sources & APIs
+  - requests>=2.31
+  - beautifulsoup4>=4.12
+  - selenium>=4.0  # Web scraping
+  
+  # Development Tools
+  - black  # Code formatting
+  - pytest  # Testing
+  - mypy  # Type checking
+  - pre-commit  # Git hooks
+  
+  # Specialized packages via pip
+  - pip
+  - pip:
+    # Deep Learning
+    - torch>=2.0
+    - tensorflow>=2.13
+    - transformers>=4.33  # Hugging Face
+    
+    # Financial Analysis
+    - alpha-vantage
+    - quandl
+    - fredapi  # Federal Reserve data
+    - pandas-datareader
+    
+    # Advanced Mathematical Tools
+    - galois>=0.3  # Finite field arithmetic
+    - fenics>=2019.1  # Finite element analysis
+    - manim>=0.17  # Mathematical animations
+    
+    # Jupyter Enhancements
+    - kaleido  # Plotly static export
+    - jupyter_contrib_nbextensions
+    - rise  # Jupyter presentations
+    - watermark  # Documentation
+    - jupytext  # Sync notebooks with .py files
+    
+    # Specialized Data Science
+    - shap>=0.42  # Explainable AI
+    - lime>=0.2  # Local interpretable model explanations
+    - optuna>=3.0  # Hyperparameter optimization
+    - mlflow>=2.0  # ML experiment tracking
+    
+    # Computational Finance
+    - zipline-reloaded  # Algorithmic trading
+    - empyrical  # Risk/performance metrics
+    - pyfolio  # Portfolio analysis
+    
+    # Signal Processing
+    - pywavelets>=1.4  # Wavelet transforms
+    - spectrum>=0.8  # Spectral analysis
+    
+    # Web Applications
+    - streamlit>=1.25  # Quick web apps
+    - dash>=2.12  # Interactive web apps
+    - fastapi>=0.100  # API development
+    
+    # Database Connectivity
+    - sqlalchemy>=2.0
+    - psycopg2-binary  # PostgreSQL
+    - pymongo>=4.0  # MongoDB
+    
+    # Cloud & Deployment
+    - boto3>=1.28  # AWS SDK
+    - azure-storage-blob  # Azure
+    - google-cloud-storage  # GCP

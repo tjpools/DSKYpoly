@@ -1,0 +1,48 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug DSKYpoly (Prompt for Coefficients)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/dskypoly",
+      "args": [
+        "${input:coeffA}",
+        "${input:coeffB}",
+        "${input:coeffC}"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/src",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "Build DSKYpoly",
+      "miDebuggerPath": "/usr/bin/gdb"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "coeffA",
+      "type": "promptString",
+      "description": "Enter coefficient a"
+    },
+    {
+      "id": "coeffB",
+      "type": "promptString",
+      "description": "Enter coefficient b"
+    },
+    {
+      "id": "coeffC",
+      "type": "promptString",
+      "description": "Enter coefficient c"
+    }
+  ]
+}
+	

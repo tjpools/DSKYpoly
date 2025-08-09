@@ -1,0 +1,234 @@
+\Jh|
+PTE1
+H=X0@
+/lib64/ld-linux-x86-64.so.2
+snprintf
+puts
+perror
+__isoc23_scanf
+fopen
+__libc_start_main
+fprintf
+localtime
+fclose
+libc.so.6
+GLIBC_2.38
+GLIBC_2.34
+GLIBC_2.2.5
+__gmon_start__
+DSKYpoly.log
+Log file error
+[%04d-%02d-%02d %02d:%02d:%02d] %s
+DSKYpoly: %s
+%s: %.4f
+%s: %.4f %c %.4fi
+=== DSKYpoly Interface ===
+Enter VERB (action): 
+Enter NOUN (target): 
+VERB %02d / NOUN %02d entered.
+Loading quadratic polynomial coefficients...
+Prompting for coefficients.
+Enter coefficient a: 
+Enter coefficient b: 
+Enter coefficient c: 
+Coefficients loaded.
+Solving quadratic polynomial...
+Calling solver.
+Solver completed.
+Displaying the roots:
+Displaying roots.
+Root 1
+Root 2
+Exiting DSKYpoly.
+Program exited.
+Invalid VERB/NOUN combination.
+Invalid command.
+;*3$"
+GCC: (GNU) 15.1.1 20250521 (Red Hat 15.1.1-2)
+AV:4p1294
+RV:running gcc 15.1.1 20250521
+BV:annobin gcc 15.1.1 20250521
+GW:0x7d60562 ../sysdeps/x86/abi-note.c
+SP:3
+SC:1
+CF:8 ../sysdeps/x86/abi-note.c
+FL:0 ../sysdeps/x86/abi-note.c
+GA:1
+PI:4
+SE:0
+iS:0
+GW:0x7d60562 init.c
+CF:8 init.c
+FL:0 init.c
+GW:0x7d60562 static-reloc.c
+SP:0 static-reloc.c
+CF:8 static-reloc.c
+FL:0 static-reloc.c
+;!"9
+__off_t
+localtime
+_IO_read_ptr
+_chain
+tm_hour
+_shortbuf
+_IO_buf_base
+log_event
+tm_zone
+long long unsigned int
+long long int
+_fileno
+_IO_read_end
+_flags
+_IO_buf_end
+_cur_column
+_IO_codecvt
+double
+_old_offset
+tm_mon
+_IO_marker
+_short_backupbuf
+tm_year
+_freeres_buf
+fprintf
+_IO_write_ptr
+short unsigned int
+tm_isdst
+_IO_save_base
+r2_real
+solve_poly_2
+GNU C23 15.1.1 20250521 (Red Hat 15.1.1-2) -mtune=generic -march=x86-64 -g
+label
+_lock
+_flags2
+_mode
+perror
+tm_min
+tm_yday
+r1_imag
+_IO_write_end
+_prevchain
+log_msg
+_IO_lock_t
+_IO_FILE
+float
+fopen
+_markers
+unsigned char
+short int
+_IO_wide_data
+_vtable_offset
+tm_gmtoff
+verb
+tm_wday
+print_root
+fclose
+__off64_t
+_IO_read_base
+_IO_save_end
+tm_mday
+snprintf
+__time_t
+_unused2
+tm_sec
+_IO_backup_base
+noun
+_freeres_list
+r2_imag
+__isoc23_scanf
+main
+_IO_write_base
+r1_real
+src/main.c
+/home/tjpools/assembly-projects/DSKYpoly
+/usr/include/bits
+/usr/include/bits/types
+/usr/include
+types.h
+struct_FILE.h
+time_t.h
+struct_tm.h
+stdio.h
+time.h
+crt1.o
+__abi_tag
+crtbegin.o
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+main.c
+r1_real
+r1_imag
+r2_real
+r2_imag
+src/solve_poly_2.asm
+solve_poly_2.real_roots
+solve_poly_2.complex_roots
+crtend.o
+__FRAME_END__
+_DYNAMIC
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+localtime@GLIBC_2.2.5
+__libc_start_main@GLIBC_2.34
+puts@GLIBC_2.2.5
+_edata
+fclose@GLIBC_2.2.5
+_fini
+solve_poly_2
+snprintf@GLIBC_2.2.5
+__isoc23_scanf@GLIBC_2.38
+__data_start
+fprintf@GLIBC_2.2.5
+__gmon_start__
+__dso_handle
+_IO_stdin_used
+_end
+_dl_relocate_static_pie
+log_event
+__bss_start
+main
+fopen@GLIBC_2.2.5
+perror@GLIBC_2.2.5
+print_root
+__TMC_END__
+_init
+.symtab
+.strtab
+.shstrtab
+.note.gnu.build-id
+.init
+.text
+.fini
+.interp
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.rodata
+.eh_frame_hdr
+.eh_frame
+.note.gnu.property
+.note.ABI-tag
+.init_array
+.fini_array
+.dynamic
+.got
+.got.plt
+.data
+.bss
+.comment
+.annobin.notes
+.gnu.build.attributes
+.debug_aranges
+.debug_info
+.debug_abbrev
+.debug_line
+.debug_str
+.debug_line_str
+.debug_rnglists

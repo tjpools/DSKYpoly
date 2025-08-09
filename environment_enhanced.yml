@@ -1,0 +1,40 @@
+name: dskypoly-advanced
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  # Core mathematical computing
+  - numpy>=1.24
+  - scipy>=1.10
+  - sympy>=1.12
+  - mpmath>=1.3
+  
+  # Advanced visualization
+  - matplotlib>=3.7
+  - plotly>=5.15
+  - bokeh>=3.0
+  - seaborn>=0.12
+  
+  # Interactive computing
+  - jupyter
+  - jupyterlab>=4.0
+  - notebook
+  - ipywidgets>=8.0
+  - ipympl  # Interactive matplotlib
+  
+  # Data science
+  - pandas>=2.0
+  - networkx  # For graph theory visualizations
+  
+  # Development tools
+  - black  # Code formatting
+  - pytest  # Testing
+  
+  # Specialized packages via pip
+  - pip
+  - pip:
+    - kaleido  # Plotly static export
+    - jupyter_contrib_nbextensions
+    - rise  # Jupyter presentations
+    - watermark  # Documentation

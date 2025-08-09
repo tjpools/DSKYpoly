@@ -1,0 +1,339 @@
+PTE1
+H=XO@
+l$Pf
+% P@
+$%(P@
+,%0P@
+<%XN@
+% P@
+%(P@
+<%XN@
+% P@
+%0P@
+<%XN@
+%0P@
+%XN@
+%PN@
+YD$ H
+/lib64/ld-linux-x86-64.so.2
+__gmon_start__
+fabs
+puts
+putchar
+fflush
+stdout
+__libc_start_main
+printf
+libm.so.6
+libc.so.6
+GLIBC_2.2.5
+GLIBC_2.29
+GLIBC_2.34
+                    DSKYpoly-5 Quintic Solver                  
+              Abel-Ruffini Theorem + Galois Theory             
+ Transforms: ax
+ + bx
+ + cx
+ + dx
+ + ex + f = 0                
+ Theory: No general radical solution (Abel-Ruffini, 1824-1826) 
+ Implementation: Numerical methods + special case detection    
+ Mathematical Foundation:
+ Galois Group S
+: 120 permutations, contains non-solvable A
+ Abel-Ruffini Theorem: General quintic unsolvable by radicals
+ Special Cases: Monomial, certain binomial forms ARE solvable
+ Numerical Methods: Newton-Raphson, Durand-Kerner for general case
+ (Symmetric): 120 elements, all permutations of 5 objects
+ (Alternating): 60 even permutations, simple non-solvable subgroup
+ Solvable Subgroups: Only those avoiding A
+ allow radical solutions
+ Fundamental Insight: Equation solvability 
+ Galois group solvability
+ End of 300-year search for quintic formula (like quadratic formula)
+ Birth of abstract algebra and group theory
+ Demonstrated fundamental limits of algebraic methods
+Mathematical Significance: %s
+ Testing Reference Architecture:
+ Testing Special Cases Solver:
+ Running Quintic Solver Test Suite
+Testing %d quintic polynomial cases...
+            Quintic Implementation Development Complete         
+  "Beyond radicals: where algebra yields to numerical wisdom"  
+ Galois Theory Context:
+Group Theory and Solvability:
+Historical Impact:
+Test Case %d: %s
+Polynomial: 
+%.1fx
+%.1fx^%d
+%.1f
+ = 0
+Expected: %s
+Roots found: %d
+;*3$"
+Monomial quintic (solvable)
+x = 2
+^k where 
+ = e^(2
+i/5), k = 0,1,2,3,4
+Solvable by radicals: x^5 = 32 
+ x = 2 
+ (5th roots of unity)
+Binomial quintic (Bring-Jerrard form)
+Requires elliptic functions or numerical methods
+Special binomial case - historically significant for transcendental methods
+General quintic (unsolvable by radicals)
+Numerical approximation required
+Demonstrates Abel-Ruffini theorem: no radical formula exists
+Odd quintic (factorizable)
+x(x^4 - 10x^2 + 5) = 0
+Factorizable case: x=0 and quartic subproblem
+?Cyclotomic-related quintic
+Complex roots near 6th roots of unity
+Related to (x^6 - 1)/(x - 1) = 0, demonstrates complex root structure
+?=== Quintic Reference Architecture ===
+Input: %.6fx^5 + %.6fx^4 + %.6fx^3 + %.6fx^2 + %.6fx + %.6f = 0
+Method: Reference architecture with stack validation
+Galois Group: Symmetric S5 (120 permutations)
+Solvability: Checking for special cases...
+=== Quintic Reference Complete ===
+q==== Special Cases Solver ===
+Detected: Monomial form x^5 = %.6f
+Root %d: %.6f + %.6fi
+Detected: Binomial form x^5 + px + q = 0
+Detected: Factorizable form
+General case: requires numerical methods
+=== Special Cases Analysis Complete ===
+GCC: (GNU) 15.1.1 20250521 (Red Hat 15.1.1-2)
+AV:4p1294
+RV:running gcc 15.1.1 20250521
+BV:annobin gcc 15.1.1 20250521
+GW:0x7d60562 ../sysdeps/x86/abi-note.c
+SP:3
+SC:1
+CF:8 ../sysdeps/x86/abi-note.c
+FL:0 ../sysdeps/x86/abi-note.c
+GA:1
+PI:4
+SE:0
+iS:0
+GW:0x7d60562 init.c
+CF:8 init.c
+FL:0 init.c
+GW:0x7d60562 static-reloc.c
+SP:0 static-reloc.c
+CF:8 static-reloc.c
+FL:0 static-reloc.c
+printf
+__off_t
+_IO_read_ptr
+_chain
+_shortbuf
+quintic_test_case
+_IO_buf_base
+long long unsigned int
+long long int
+solve_poly_5_special
+_fileno
+_IO_read_end
+num_test_cases
+_flags
+_IO_buf_end
+_cur_column
+_IO_codecvt
+double
+_old_offset
+_IO_marker
+_short_backupbuf
+_freeres_buf
+mathematical_significance
+expected
+_IO_write_ptr
+__builtin_putchar
+short unsigned int
+_IO_save_base
+test_quintic_case
+_lock
+_flags2
+_mode
+__builtin_puts
+stdout
+description
+_IO_write_end
+_prevchain
+_IO_lock_t
+_IO_FILE
+display_galois_insights
+float
+coeffs
+fflush
+_markers
+solve_poly_5_reference
+unsigned char
+short int
+_IO_wide_data
+_vtable_offset
+roots_found
+__off64_t
+_IO_read_base
+_IO_save_end
+case_num
+display_quintic_context
+_unused2
+_IO_backup_base
+_freeres_list
+main
+_IO_write_base
+GNU C23 15.1.1 20250521 (Red Hat 15.1.1-2) -mtune=generic -march=x86-64 -g -O2
+/home/tjpools/assembly-projects/DSKYpoly/quintic
+src/main.c
+/usr/include/bits
+/usr/include/bits/types
+/usr/include
+types.h
+struct_FILE.h
+stdio.h
+<built-in>
+crt1.o
+__abi_tag
+main.c
+test_cases
+crtbegin.o
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+src/solve_poly_5_reference.asm
+quintic_tolerance
+max_iterations
+unity_root_real
+unity_root_imag
+debug_enter
+debug_coeffs
+debug_method
+debug_galois
+debug_solvable
+debug_complete
+coeffs_storage
+stack_aligned
+quintic_reference_exit
+check_monomial_form
+not_monomial
+monomial_check_end
+check_special_cases
+omega_0_real
+omega_0_imag
+omega_1_real
+omega_1_imag
+omega_2_real
+omega_2_imag
+omega_3_real
+omega_3_imag
+omega_4_real
+omega_4_imag
+src/solve_poly_5_special.asm
+two_pi
+fifth_pi
+debug_special
+debug_monomial
+debug_roots
+debug_binomial
+debug_factor
+debug_general
+roots_real
+roots_imag
+root_count
+coeff_a
+coeff_b
+coeff_c
+coeff_d
+coeff_e
+coeff_f
+monomial_case_detected
+binomial_case_detected
+factorizable_case_detected
+special_cases_exit
+check_monomial_quintic
+check_binomial_quintic
+not_binomial
+check_factorizable_quintic
+factorizable_detected
+solve_monomial_quintic
+root_loop
+zero_target
+zero_loop
+division_by_zero
+roots_complete
+five_const
+crtend.o
+__FRAME_END__
+_DYNAMIC
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+test_quintic_case
+putchar@GLIBC_2.2.5
+__libc_start_main@GLIBC_2.34
+stdout@GLIBC_2.2.5
+puts@GLIBC_2.2.5
+_edata
+pow@GLIBC_2.29
+_fini
+printf@GLIBC_2.2.5
+display_galois_insights
+cos@GLIBC_2.2.5
+__data_start
+__gmon_start__
+__dso_handle
+_IO_stdin_used
+fflush@GLIBC_2.2.5
+_dl_relocate_static_pie
+solve_poly_5_special
+solve_poly_5_reference
+__bss_start
+main
+sin@GLIBC_2.2.5
+fabs@GLIBC_2.2.5
+__TMC_END__
+display_quintic_context
+_init
+.symtab
+.strtab
+.shstrtab
+.note.gnu.build-id
+.init
+.text
+.fini
+.interp
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.rodata
+.eh_frame_hdr
+.eh_frame
+.note.gnu.property
+.note.ABI-tag
+.init_array
+.fini_array
+.dynamic
+.got
+.got.plt
+.data
+.bss
+.comment
+.annobin.notes
+.gnu.build.attributes
+.debug_aranges
+.debug_info
+.debug_abbrev
+.debug_line
+.debug_str
+.debug_line_str
+.debug_loclists
+.debug_rnglists

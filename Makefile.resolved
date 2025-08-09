@@ -1,0 +1,162 @@
+# === Makefile for DSKYpoly ===
+
+# Compiler and Assembler
+CC = gcc
+AS = nasm
+
+# Flags
+CFLAGS = -Wall -g -no-pie
+ASFLAGS = -f elf64
+LDFLAGS = -no-pie
+
+# Folder Structure
+BUILD = build
+SRC = src
+INCLUDE = include
+
+# Source files
+C_SRC = $(SRC)/main.c
+ASM_SRC = $(SRC)/solve_poly_2.asm
+
+# Object and Binary output
+OBJ = $(BUILD)/main.o $(BUILD)/solve_poly_2.o
+EXE = $(BUILD)/dskypoly
+
+# Targets we can invoke from terminal
+.PHONY: all clean run test log_structure debug check version doctor lattice runpy runpy-symbolic tag
+
+# === Core Build Rules ===
+all: $(EXE) log_structure debug check
+
+# === Linking: final binary from object files ===
+$(EXE): $(OBJ)
+	@echo "🖇️ Linking object files..."
+	$(CC) $(LDFLAGS) $(OBJ) -o $@
+
+# === Compile C source ===
+$(BUILD)/main.o: $(C_SRC)
+	@echo "📐 Compiling C source..."
+	@mkdir -p $(BUILD)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# === Assemble NASM source ===
+$(BUILD)/solve_poly_2.o: $(ASM_SRC)
+	@echo "🔧 Assembling NASM source..."
+	$(AS) $(ASFLAGS) $< -o $@
+
+# === Run the program ===
+run: $(EXE)
+	@echo "🚀 Running DSKYpoly..."
+	./$(EXE)
+
+# === Clean build artifacts ===
+clean:
+	@echo "♻️ Cleaning build files..."
+	rm -rf $(BUILD)/*.o $(EXE)
+
+# === Log project structure ===
+log_structure:
+	@echo "================================================================"
+	@echo "Logging project structure ..."
+	@echo "=== Project Structure Snapshot ===" > DSKYpoly.log
+	@date >> DSKYpoly.log
+	@tree -L 2 . >> DSKYpoly.log
+	@echo "" >> DSKYpoly.log
+
+# === Debug info ===
+debug:
+	@echo "================================================================"
+	@echo "Debug Info:"
+	@echo "Source Directory: $(SRC)"
+	@echo "Build Directory: $(BUILD)"
+	@echo "C Source File: $(C_SRC)"
+	@echo "ASM Source File: $(ASM_SRC)"
+	@echo "Object Files: $(OBJ)"
+	@echo "Executable Target: $(EXE)"
+	@echo "Compiler: $(CC)"
+	@echo "Assembler: $(AS)"
+	@echo "CFLAGS: $(CFLAGS)"
+	@echo "ASFLAGS: $(ASFLAGS)"
+	@echo "LDFLAGS: $(LDFLAGS)"
+
+# === Pre-build checks ===
+check:
+	@echo "================================================================"
+	@echo "🔧 Current directory: $(shell pwd)"
+	@echo "💻🔗💾 Checking Project Structure..."
+	@test -f $(C_SRC) && echo "✅ Found: $(C_SRC)" || echo "❌ Missing: $(C_SRC)"
+	@test -f $(ASM_SRC) && echo "✅ Found: $(ASM_SRC)" || echo "❌ Missing: $(ASM_SRC)"
+	@test -f Makefile && echo "✅ Found: Makefile" || echo "❌ Missing: Makefile"
+	@test -d $(BUILD) && echo "✅ Found: $(BUILD)/" || echo "❌ Missing: $(BUILD)/"
+	@echo "📝 Logging structure to DSKYpoly.log..."
+	@echo "=== Pre-Build Check ===" >> DSKYpoly.log
+	@date >> DSKYpoly.log
+	@tree -L 2 . >> DSKYpoly.log
+	@echo "" >> DSKYpoly.log
+
+# === Git version info ===
+version:
+	@echo "================================================================"
+	@echo "🌐 Git Version Info:"
+	@git log -1 --pretty=format:"Commit: %h%nAuthor: %an%nDate: %ad%nMessage: %s"
+	@echo ""
+	@echo "Logging to DSKYpoly.log..."
+	@echo "=== Git Version ===" >> DSKYpoly.log
+	@git log -1 --pretty=format:"[%ad] %h - %s" >> DSKYpoly.log
+	@echo "" >> DSKYpoly.log
+
+# === Makefile hygiene check ===
+doctor:
+	@echo "================================================================="
+	@echo "🕵️ Running Makefile diagnostics..."
+	@grep -n '^[ ]\+[^#[:space:]]' Makefile && echo "⚠️ Found lines starting with spaces!" || echo "👌 No space-indented commands found."
+
+# === Generate lattice visualization ===
+lattice:
+	dot -Tpng lattice.dot -o lattice.png
+
+# === Run Python symbolic interface ===
+runpy:
+	@./src/dskypoly.py 1 -3 2
+
+runpy-symbolic:
+	@./src/dskypoly.py "x² - 3x + 2"
+
+# === Run a symbolic test case ===
+test: run
+	@echo "🧪 Testing quadratic: x² - 4x + 4 = 0"
+	@echo "Expected: Root 1 = 2.0000, Root 2 = 2.0000"
+
+# === Tag this version in Git ===
+tag:
+	@git tag -a v1.0 -m "Stable quadratic solver with real/complex/double root support"
+	@git push origin v1.0
+
+# === Quintic Hypergeometric Targets ===
+quintic-setup:
+	@echo "🔬 Setting up quintic hypergeometric environment..."
+	@pip3 install mpmath scipy sympy matplotlib plotly jupyter
+	@echo "✅ Quintic dependencies installed"
+
+quintic-test:
+	@echo "🧪 Testing quintic hypergeometric solver..."
+	@python3 src/quintic_hypergeometric.py --test
+
+quintic-visual:
+	@echo "🎨 Generating quintic visualizations..."
+	@python3 src/visualize_quintic.py --output quintic_analysis.html
+	@echo "📊 Open quintic_analysis.html in browser"
+
+quintic-notebook:
+	@echo "📚 Launching Jupyter notebook for quintic research..."
+	@jupyter notebook notebooks/quintic_research.ipynb
+
+# === Quintic Test Targets ===
+test-quintic-unity:
+	@echo "🌟 Testing quintic with 5th roots of unity..."
+	@python3 quintic/test_roots_of_unity.py
+
+test-quintic-visual:
+	@echo "🎨 Generating quintic visualization..."
+	@python3 quintic/test_roots_of_unity.py
+	@echo "📊 Visualization saved to visualizations/quintic_roots_of_unity.png"

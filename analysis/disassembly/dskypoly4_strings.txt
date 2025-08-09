@@ -1,0 +1,275 @@
+PTE1
+d$@H
+D$PH
+L$`H
+T$pH
+d$@H
+YL$ 
+YL$0
+D$pH
+/lib64/ld-linux-x86-64.so.2
+__gmon_start__
+sqrt
+puts
+__isoc23_scanf
+putchar
+__libc_start_main
+printf
+strcmp
+libm.so.6
+libc.so.6
+GLIBC_2.2.5
+GLIBC_2.38
+GLIBC_2.34
+Biquadratic
+x = 
+Depressed quartic
+x = 
+General quartic
+x = 1 (multiplicity 4)
+Complex roots
+x = 
+Ferrari's example
+Mixed real/complex
+                    DSKYpoly-4 Quartic Solver                  
+                    Ferrari's Method (1522-1565)               
+ Transforms: ax
+ + bx
+ + cx
+ + dx + e = 0                     
+ Method: Quartic 
+ Resolvent Cubic 
+ Cardano's 
+ Roots        
+ Implementation: x86-64 Assembly with SSE floating-point      
+Test Case %d: %s
+Polynomial: %.1fx
+ + %.1fx
+ + %.1fx
+ + %.1fx + %.1f = 0
+Expected: %s
+ Interactive Quartic Solver
+Enter coefficients for ax
+ + bx
+ + cx
+ + dx + e = 0
+Enter coefficient a (quartic): 
+Error: Leading coefficient cannot be zero for quartic equation.
+Enter coefficient b (cubic): 
+Enter coefficient c (quadratic): 
+Enter coefficient d (linear): 
+Enter coefficient e (constant): 
+ Reference Architecture Result:
+ Production Implementation Result:
+Solve another quartic? (y/n): 
+ Running Ferrari Method Test Suite
+Testing %d quartic polynomial cases...
+ Testing Reference Architecture:
+ Testing Production Implementation:
+ Historical Context: Ferrari's Method
+ Ludovico Ferrari (1522-1565)
+ Student of Gerolamo Cardano
+ Discovered general solution to quartic equations
+ Method: Reduce quartic to resolvent cubic
+ Revolutionary: First general algebraic solution beyond cubic
+ Computational beauty: Recursive use of Cardano's method
+ Algorithm Overview:
+1. Depress quartic: Remove cubic term by substitution
+2. Resolvent cubic: Transform to 8t
+ + 8pt
+ + (2p
+ - 8r)t - q
+ = 0
+3. Cardano's method: Solve the resolvent cubic
+4. Root extraction: Use cubic solution to find quartic roots
+5. Back-substitution: Transform back to original variable
+--test
+--info
+--interactive
+Usage: %s [--test|--info|--interactive]
+  --test        Run test suite
+  --info        Show Ferrari method information
+  --interactive Enter interactive mode
+  (no args)     Run default test suite
+              Ferrari's Method Implementation Complete          
+     "The quartic yields its secrets through cubic wisdom"     
+;*3$"
+?=== Ferrari's Method for Quartic Solver ===
+Input: %.3fx^4 + %.3fx^3 + %.3fx^2 + %.3fx + %.3f = 0
+Depressed quartic: y^4 + %.3fy^2 + %.3fy + %.3f = 0
+Resolvent cubic: 8t^3 + %.3ft^2 + %.3ft + %.3f = 0
+Quartic discriminant: %.6f
+Real root: %.6f
+Complex root: %.6f + %.6fi
+Debug: entering depress_quartic
+=== Ferrari Method Complete ===
+Error: Leading coefficient cannot be zero
+?=== Ferrari's Method (Clean Implementation) ===
+Input: %.6fx^4 + %.6fx^3 + %.6fx^2 + %.6fx + %.6f = 0
+Depressed: y^4 + %.6fy^2 + %.6fy + %.6f = 0
+Resolvent: 8t^3 + %.6ft^2 + %.6ft + %.6f = 0
+Discriminant: %.9f
+Root: %.9f
+=== Ferrari Method Complete ===
+Error: Leading coefficient cannot be zero
+GCC: (GNU) 15.1.1 20250521 (Red Hat 15.1.1-2)
+AV:4p1294
+RV:running gcc 15.1.1 20250521
+BV:annobin gcc 15.1.1 20250521
+GW:0x7d60562 ../sysdeps/x86/abi-note.c
+SP:3
+SC:1
+CF:8 ../sysdeps/x86/abi-note.c
+FL:0 ../sysdeps/x86/abi-note.c
+GA:1
+PI:4
+SE:0
+iS:0
+GW:0x7d60562 init.c
+CF:8 init.c
+FL:0 init.c
+GW:0x7d60562 static-reloc.c
+SP:0 static-reloc.c
+CF:8 static-reloc.c
+FL:0 static-reloc.c
+test_num
+solve_poly_4_production
+print_header
+print_test_case_header
+float
+description
+unsigned char
+long unsigned int
+short unsigned int
+solve_poly_4_reference
+GNU C23 15.1.1 20250521 (Red Hat 15.1.1-2) -mtune=generic -march=x86-64 -g
+double
+main
+print_ferrari_info
+run_test_suite
+test
+num_tests
+run_interactive_mode
+strcmp
+__isoc23_scanf
+printf
+test_cases
+short int
+argv
+QuarticTestCase
+long int
+choice
+expected_roots
+argc
+src/main.c
+/home/tjpools/assembly-projects/DSKYpoly/quartic
+/usr/include
+string.h
+stdio.h
+crt1.o
+__abi_tag
+crtbegin.o
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+main.c
+src/solve_poly_4_reference.asm
+const_neg1
+const_0
+const_1
+const_2
+const_3
+const_4
+const_8
+const_16
+const_27
+const_256
+const_half
+const_quarter
+const_eighth
+fmt_quartic_start
+fmt_input_coeffs
+fmt_depressed
+fmt_resolvent
+fmt_discriminant
+fmt_real_root
+fmt_complex_root
+fmt_debug
+fmt_complete
+err_leading_zero
+solve_poly_4_reference.error_leading_zero
+src/solve_poly_4_production.asm
+fmt_header
+fmt_input
+solve_poly_4_production.error_leading_zero
+crtend.o
+__FRAME_END__
+_DYNAMIC
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+putchar@GLIBC_2.2.5
+__libc_start_main@GLIBC_2.34
+solve_poly_4_production
+test_cases
+puts@GLIBC_2.2.5
+_edata
+_fini
+solve_poly_4_reference
+printf@GLIBC_2.2.5
+print_ferrari_info
+print_test_case_header
+__isoc23_scanf@GLIBC_2.38
+__data_start
+strcmp@GLIBC_2.2.5
+__gmon_start__
+__dso_handle
+run_interactive_mode
+_IO_stdin_used
+_end
+_dl_relocate_static_pie
+__bss_start
+main
+print_header
+run_test_suite
+__TMC_END__
+sqrt@GLIBC_2.2.5
+_init
+.symtab
+.strtab
+.shstrtab
+.note.gnu.build-id
+.init
+.text
+.fini
+.interp
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.rodata
+.eh_frame_hdr
+.eh_frame
+.note.gnu.property
+.note.ABI-tag
+.init_array
+.fini_array
+.dynamic
+.got
+.got.plt
+.data
+.bss
+.comment
+.annobin.notes
+.gnu.build.attributes
+.debug_aranges
+.debug_info
+.debug_abbrev
+.debug_line
+.debug_str
+.debug_line_str

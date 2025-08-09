@@ -1,0 +1,174 @@
+// === DSKYpoly-4 Computational Automorphism (Detailed) ===
+// DOT notation for Ferrari's Method computational transformations
+// This diagram shows how data flows through our two-implementation architecture
+
+digraph ferrari_automorphism {
+    // Graph properties
+    rankdir=TB;
+    node [shape=rect, style=filled];
+    edge [fontsize=10];
+    
+    // Color scheme for different phases
+    subgraph cluster_input {
+        label="Input Phase";
+        color=lightgray;
+        style=filled;
+        fillcolor=lightcyan;
+        
+        input [label="Quartic Polynomial\nax⁴+bx³+cx²+dx+e=0", fillcolor=lightblue];
+        validate [label="Validate a≠0", fillcolor=lightyellow];
+        stack_setup [label="16-byte Stack Layout\n[rsp+0..64]", fillcolor=lightgreen];
+    }
+    
+    // Two implementation tracks
+    subgraph cluster_reference_track {
+        label="Reference Architecture Track";
+        color=blue;
+        style=filled;
+        fillcolor=lightsteelblue;
+        
+        ref_stable [label="Stable Stack\nAlignment", fillcolor=powderblue];
+        ref_placeholder [label="Placeholder\nCalculations", fillcolor=powderblue];
+        ref_output [label="Architectural\nValidation", fillcolor=powderblue];
+    }
+    
+    subgraph cluster_production_track {
+        label="Production Implementation Track";
+        color=red;
+        style=filled;
+        fillcolor=mistyrose;
+        
+        // Ferrari Method phases
+        depress [label="Depress Quartic\ny = x + b/(4a)", fillcolor=pink];
+        resolvent [label="Resolvent Cubic\n8t³+8pt²+(2p²-8r)t-q²=0", fillcolor=pink];
+        solve_cubic [label="Solve Cubic\n(Cardano/Numerical)", fillcolor=pink];
+        extract [label="Extract Quartic\nRoots", fillcolor=pink];
+    }
+    
+    // Mathematical transformations (production track)
+    subgraph cluster_math {
+        label="Mathematical Transformations";
+        color=green;
+        style=filled;
+        fillcolor=lightgreen;
+        
+        coeff_p [label="p = c/a - 3b²/(8a²)", fillcolor=lightgreen];
+        coeff_q [label="q = b³/(8a³) - bc/(2a²) + d/a", fillcolor=lightgreen];
+        coeff_r [label="r = -3b⁴/(256a⁴) + cb²/(16a³) - bd/(4a²) + e/a", fillcolor=lightgreen];
+        
+        cubic_A [label="A = 8", fillcolor=lightgreen];
+        cubic_B [label="B = 8p", fillcolor=lightgreen];
+        cubic_C [label="C = 2p² - 8r", fillcolor=lightgreen];
+        cubic_D [label="D = -q²", fillcolor=lightgreen];
+    }
+    
+    // Register and memory flow
+    subgraph cluster_registers {
+        label="Register/Memory Management";
+        color=purple;
+        style=filled;
+        fillcolor=lavender;
+        
+        xmm_regs [label="XMM0-XMM7\nFloating Point", fillcolor=plum];
+        stack_mem [label="Stack Memory\n16-byte Aligned", fillcolor=plum];
+        constants [label="IEEE 754\nConstants", fillcolor=plum];
+    }
+    
+    // Output phase
+    subgraph cluster_output {
+        label="Output Phase";
+        color=orange;
+        style=filled;
+        fillcolor=peachpuff;
+        
+        real_roots [label="Real Roots", fillcolor=orange];
+        complex_roots [label="Complex Roots", fillcolor=orange];
+        error_cases [label="Error Handling", fillcolor=orange];
+    }
+    
+    // Quintic scaling indicators
+    subgraph cluster_quintic_scaling {
+        label="Quintic Scaling Patterns";
+        color=darkgreen;
+        style=filled;
+        fillcolor=lightseagreen;
+        
+        quintic_coeff [label="Additional\nCoefficient f", fillcolor=aquamarine];
+        numerical_methods [label="Numerical\nMethods", fillcolor=aquamarine];
+        quintic_special_cases [label="Quintic\nSpecial Cases", fillcolor=aquamarine];
+    }
+    
+    // Flow connections
+    input -> validate;
+    validate -> stack_setup;
+    
+    // Reference track flow
+    stack_setup -> ref_stable;
+    ref_stable -> ref_placeholder;
+    ref_placeholder -> ref_output;
+    
+    // Production track flow  
+    stack_setup -> depress;
+    depress -> coeff_p;
+    depress -> coeff_q;
+    depress -> coeff_r;
+    
+    coeff_p -> resolvent;
+    coeff_q -> resolvent;
+    coeff_r -> resolvent;
+    
+    resolvent -> cubic_A;
+    resolvent -> cubic_B;
+    resolvent -> cubic_C;
+    resolvent -> cubic_D;
+    
+    cubic_A -> solve_cubic;
+    cubic_B -> solve_cubic;
+    cubic_C -> solve_cubic;
+    cubic_D -> solve_cubic;
+    
+    solve_cubic -> extract;
+    
+    // Register/memory connections
+    xmm_regs -> stack_mem;
+    constants -> xmm_regs;
+    stack_mem -> depress;
+    stack_mem -> resolvent;
+    
+    // Output connections
+    extract -> real_roots;
+    extract -> complex_roots;
+    ref_output -> real_roots;
+    validate -> error_cases [label="if a=0"];
+    
+    // Quintic scaling connections
+    stack_setup -> quintic_coeff [style=dashed, color=darkgreen, label="quintic extends to"];
+    depress -> numerical_methods [style=dashed, color=darkgreen, label="quintic informs"];
+    solve_cubic -> quintic_special_cases [style=dashed, color=darkgreen, label="quintic patterns for"];
+    
+    // Cross-track validation
+    ref_output -> extract [style=dotted, color=gray, label="validates"];
+    
+    // Reference production track comparison
+    ref_stable -> depress [style=dotted, color=blue, label="reference production tracks"];
+    ref_output -> real_roots [style=dotted, color=blue, label="reference production outputs"];
+    
+    // Legend
+    subgraph cluster_legend {
+        label="Legend";
+        color=black;
+        style=filled;
+        fillcolor=white;
+        
+        legend [label="Solid: Current Implementation\nDashed: Quintic Extensions\nDotted: Validation Paths", fillcolor=white];
+    }
+}
+
+// === Automorphism Properties ===
+// 1. Input Space: ℝ⁵ (coefficients a,b,c,d,e)
+// 2. Transformation: Ferrari Method: ℝ⁵ → ℂ⁴ (up to 4 roots)
+// 3. Architecture: Dual-track (Reference + Production)
+// 4. Scaling: Pattern extends to ℝ⁶ → ℂ⁵ for quintic
+// 5. Stack Invariant: 16-byte alignment preserved throughout
+// 6. Register Invariant: XMM registers properly managed across calls
+// 7. Error Handling: Graceful degradation for edge cases

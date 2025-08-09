@@ -1,0 +1,21 @@
+name: dskypoly
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - sympy
+  - matplotlib
+  - plotly
+  - jupyter
+  - jupyterlab
+  - notebook
+  - ipywidgets
+  - mpmath
+  - pandas
+  - seaborn
+  - pip
+  - pip:
+    - kaleido

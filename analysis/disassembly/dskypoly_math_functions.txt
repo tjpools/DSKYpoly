@@ -1,0 +1,6 @@
+build/dskypoly:     file format elf64-x86-64
+0000000000000000 l    df *ABS*	0000000000000000              src/solve_poly_2.asm
+00000000004008fc l       .text	0000000000000000              solve_poly_2.real_roots
+000000000040093a l       .text	0000000000000000              solve_poly_2.complex_roots
+00000000004008b0 g       .text	0000000000000000              solve_poly_2
+00000000004005c4 g     F .text	0000000000000097              print_root

@@ -1,0 +1,14 @@
+quintic/build/dskypoly5:     file format elf64-x86-64
+0000000000000000 l    df *ABS*	0000000000000000              src/solve_poly_5_reference.asm
+0000000000404d18 l       .data	0000000000000000              unity_root_real
+0000000000404d20 l       .data	0000000000000000              unity_root_imag
+0000000000000000 l    df *ABS*	0000000000000000              src/solve_poly_5_special.asm
+0000000000404ea2 l       .data	0000000000000000              debug_roots
+0000000000404fb0 l       .bss	0000000000000000              roots_real
+0000000000404fd8 l       .bss	0000000000000000              roots_imag
+0000000000405000 l       .bss	0000000000000000              root_count
+0000000000400b9c l       .text	0000000000000000              solve_monomial_quintic
+0000000000400c25 l       .text	0000000000000000              root_loop
+0000000000400d12 l       .text	0000000000000000              roots_complete
+00000000004009d0 g       .text	0000000000000000              solve_poly_5_special
+0000000000400830 g       .text	0000000000000000              solve_poly_5_reference

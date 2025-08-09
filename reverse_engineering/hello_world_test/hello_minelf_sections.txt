@@ -1,0 +1,5 @@
+
+hello_minelf:     file format elf64-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn

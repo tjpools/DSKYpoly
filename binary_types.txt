@@ -1,0 +1,5 @@
+hello_printf:   cannot open `hello_printf' (No such file or directory)
+hello_native:   cannot open `hello_native' (No such file or directory)
+hello_minimal:  cannot open `hello_minimal' (No such file or directory)
+hello_flat.bin: cannot open `hello_flat.bin' (No such file or directory)
+hello_minelf:   cannot open `hello_minelf' (No such file or directory)

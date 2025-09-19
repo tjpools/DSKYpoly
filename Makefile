@@ -1,17 +1,37 @@
+
 CC=clang
 CFLAGS=-Wall -Wextra -O2
-TARGET=tic_tac_toe
+TARGETS=tic_tac_toe mandelbrot game_of_life mandelbrot_zoom rotation_matrix
 
-.PHONY: all clean
+.PHONY: all clean tic_tac_toe mandelbrot game_of_life mandelbrot_zoom rotation_matrix
+rotation_matrix: rotation_matrix.c
+	@echo "🔄 Building $@ ... (animated triangle rotation)"
+	$(CC) $(CFLAGS) -o $@ $< -lm
+	@echo "✅ $@ ready! Run ./$@ to see matrix-powered rotation."
+mandelbrot_zoom: mandelbrot_zoom.c
+	@echo "🔍 Building $@ ... (animated Mandelbrot zoom)"
+	$(CC) $(CFLAGS) -o $@ $<
+	@echo "✅ $@ ready! Run ./$@ to see emergence in action."
 
-all: $(TARGET)
-	@echo "🛠️  Building $(TARGET) with clang..."
+all: $(TARGETS)
+	@echo "🛠️  Built all targets: $(TARGETS)"
 
-$(TARGET): tic_tac_toe.c
-	$(CC) $(CFLAGS) -o $(TARGET) tic_tac_toe.c
-	@echo "✅ Build complete! Run ./$(TARGET) to play."
+tic_tac_toe: tic_tac_toe.c
+	@echo "🕹️  Building $@ ..."
+	$(CC) $(CFLAGS) -o $@ $<
+	@echo "✅ $@ ready! Run ./$@ to play."
+
+mandelbrot: mandelbrot.c
+	@echo "🌈 Building $@ ..."
+	$(CC) $(CFLAGS) -o $@ $<
+	@echo "✅ $@ ready! Run ./$@ to view Mandelbrot set."
+
+game_of_life: game_of_life.c
+	@echo "🌱 Building $@ ..."
+	$(CC) $(CFLAGS) -o $@ $<
+	@echo "✅ $@ ready! Run ./$@ to watch the Game of Life."
 
 clean:
 	@echo "🧹 Cleaning up..."
-	rm -f $(TARGET)
+	rm -f $(TARGETS)
 	@echo "🗑️  Done."

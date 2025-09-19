@@ -12,10 +12,10 @@ This branch is dedicated to building and experimenting with C projects using the
 2. Use the provided Makefile to build projects (e.g., `make`).
 3. Run the resulting binaries as described in each project folder.
 
-## Example Projects
 - `tic_tac_toe.c`: Simple terminal-based tic-tac-toe game in C.
 - `mandelbrot.c`: ASCII Mandelbrot set visualization, showing C's ability to handle math and graphics in a compact way.
 - `game_of_life.c`: Conway's Game of Life simulation, demonstrating C's strengths in array manipulation and terminal animation.
+ - `rotation_matrix.c`: Animated triangle rotation using matrix multiplication, illustrating C's power in geometric transformations and movement representation.
 
 ## Demonstrating the Strengths of C Syntax
 
